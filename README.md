@@ -24,6 +24,11 @@ Open `index.html` in a browser.
 | sewer-drain-cleaning.html | Service: Sewer Drain Cleaning |
 | septic-systems.html | Service: Septic Systems |
 | pump-installation-services.html | Service: Pump Installation & Service |
+| backhoe-services.html | Service: Backhoe Services |
+| water-heater-repair-installation.html | Service: Water Heater Repair & Installation |
+| backflow-testing.html | Service: Backflow Testing |
+| contact-us.html | Contact Us (schedule form + contact info) |
+| plumbing-news.html | Plumbing News (blog index) |
 
 All pages share `css/styles.css` and `js/main.js`. The header and footer are repeated in each file, so a nav or footer change needs to be made in every page.
 
@@ -45,6 +50,9 @@ Photos are referenced from `images/` and show a grey placeholder until added:
 | page-hero-van-side.jpg | Page hero on Privacy Policy |
 | page-hero-tools.jpg | Page hero on See Our Work |
 | page-hero-team.jpg | Page hero on Join Our Team |
+| page-hero-backhoe.jpg, backhoe-excavator.jpg | Backhoe Services hero + photo |
+| page-hero-water-heater.jpg, water-heaters-tankless.jpg | Water Heaters hero + photo |
+| page-hero-drain.jpg, backflow-device.jpg | Backflow Testing hero + photo |
 | about-before.jpg, about-after.jpg | About before/after slider (sewer line trench) |
 | van-parked.jpg | About "Environmental Sustainability" photo |
 | team-josh-henry.jpg, team-matt-denton.jpg, team-tanner-rozell.jpg, team-jonathan-haas.jpg, team-nate-unsell.jpg, team-dustin-howard.jpg, team-glen-helms.jpg, team-josh-hudson.jpg, team-vicki-self.jpg, team-shane-whitt.jpg, team-jeff-cole.jpg, team-ashley-schreij.jpg | Team headshots (square crops) |
