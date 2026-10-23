@@ -737,6 +737,46 @@ img.img-missing { color: transparent; font-size: 0; }
 .side-services a.current:hover { color: var(--white); }
 .footer-cols a.current { color: var(--green); }
 .different-navy .different-body { background: var(--navy); }
+.service-main .area-photo.tall { aspect-ratio: 16 / 10; }
+.service-sub { font-size: 13px; margin: 1.4em 0 .3em; }
+.service-sub + p { margin-bottom: .6em; }
+
+/* ---------- Contact + News pages ---------- */
+.page-hero .btn { margin-top: 2px; }
+.contact-section { padding: 40px 0 90px; }
+.contact-layout { display: grid; grid-template-columns: minmax(0, 404px) minmax(0, 1fr); gap: 50px; max-width: 800px; align-items: start; }
+.contact-layout .schedule-box { padding: 36px 36px 40px; box-shadow: 0 2px 6px rgba(0,0,0,.15); }
+.contact-layout .schedule-box h2 { font-size: clamp(20px, 2vw, 26px); line-height: 1.4; margin-bottom: 1em; }
+.schedule-box-green { background: var(--green); }
+.schedule-box-green .schedule-form input[type=text],
+.schedule-box-green .schedule-form input[type=email],
+.schedule-box-green .schedule-form input[type=tel],
+.schedule-box-green .schedule-form textarea { background: rgba(255, 255, 255, .2); color: var(--white); }
+.schedule-box-green .schedule-form ::placeholder { color: var(--white); }
+.schedule-box-green .consent a { color: var(--white); text-decoration: underline; }
+.schedule-box-green .btn-green { background: var(--blue); }
+.schedule-box-green .btn-green:hover { background: var(--blue-dark); }
+
+.contact-info .logo { margin-bottom: 26px; }
+.contact-info h2 { font-size: clamp(20px, 1.8vw, 24px); }
+.contact-info > p { font-size: 11px; color: var(--muted); margin: 0 0 14px; }
+.contact-rule { display: block; width: 34px; height: 3px; background: var(--green); margin: 16px 0 34px; }
+.contact-items { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 20px; }
+.contact-item.wide { grid-column: 1 / -1; }
+.contact-item .icon { width: 34px; height: 34px; fill: none; stroke: var(--green); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 12px; }
+.contact-item h3 { font-size: 13px; margin-bottom: .6em; }
+.contact-item p { font-size: 10px; color: var(--muted); line-height: 2; margin: 0; }
+.contact-item p a { font-size: 10px; }
+.contact-item strong { color: var(--text); }
+
+.posts { padding: 6px 0 40px; }
+.posts-inner { max-width: 800px; }
+.post { display: grid; grid-template-columns: 350px minmax(0, 1fr); gap: 36px; align-items: center; margin-bottom: 20px; }
+.post img { width: 100%; aspect-ratio: 350 / 270; object-fit: cover; }
+.post h2 { font-size: 18px; text-transform: none; line-height: 1.6; margin-bottom: .6em; }
+.post p { font-size: 10px; color: var(--muted); margin: 0 0 .8em; line-height: 1.8; }
+.post .post-meta { font-size: 9px; }
+.posts .pager { width: 100%; margin-top: 10px; }
 
 /* ==========================================================
    Responsive
@@ -807,6 +847,10 @@ img.img-missing { color: transparent; font-size: 0; }
   .side-schedule .schedule-form { font-size: 12px; }
   .side-schedule .consent { font-size: 11px; }
   .different-item { font-size: 13px; }
+  .contact-layout { grid-template-columns: 1fr; max-width: 520px; }
+  .contact-info > p, .contact-item p, .contact-item p a, .post p { font-size: 13px; }
+  .post { grid-template-columns: 240px minmax(0, 1fr); gap: 24px; }
+  .post h2 { font-size: 16px; }
 }
 
 @media (max-width: 600px) {
@@ -844,4 +888,6 @@ img.img-missing { color: transparent; font-size: 0; }
   .unsure-box { padding: 20px 22px; }
   .different-body { padding: 30px 22px 34px; }
   .different-grid { grid-template-columns: 1fr; }
+  .contact-layout .schedule-box { padding: 30px 20px 32px; }
+  .post { grid-template-columns: 1fr; gap: 14px; margin-bottom: 34px; }
 }
