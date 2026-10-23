@@ -167,7 +167,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .hero {
   position: relative;
   min-height: 520px;
-  background: #3a3f6b url('../images/hero-huntsville.jpg') center / cover no-repeat;
+  background: #3a3f6b url('../images/j-henry-plumbing-huntsville-al-skyline-hero.jpg') center / cover no-repeat;
   display: flex;
   align-items: flex-start;
   overflow: hidden;
@@ -250,7 +250,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .promise {
   position: relative;
   padding: 50px 0 60px;
-  background: #2b2e7a url('../images/promise-bg.jpg') center / cover no-repeat;
+  background: #2b2e7a url('../images/j-henry-plumbing-our-promise-background.jpg') center / cover no-repeat;
 }
 .promise-overlay { position: absolute; inset: 0; background: rgba(40, 34, 140, .78); }
 .promise-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
@@ -321,7 +321,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .reviews {
   position: relative;
   padding: 36px 0 40px;
-  background: #3d3f8a url('../images/reviews-bg.jpg') center / cover no-repeat;
+  background: #3d3f8a url('../images/j-henry-plumbing-customer-reviews-background.jpg') center / cover no-repeat;
   text-align: center;
 }
 .reviews-overlay { position: absolute; inset: 0; background: rgba(40, 34, 140, .78); }
@@ -593,7 +593,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .values {
   position: relative;
   padding: 50px 0 60px;
-  background: #2b2e7a url('../images/values-bg.jpg') center / cover no-repeat;
+  background: #2b2e7a url('../images/j-henry-plumbing-core-values-background.jpg') center / cover no-repeat;
   text-align: center;
 }
 .values-overlay { position: absolute; inset: 0; background: rgba(40, 34, 140, .78); }
@@ -697,7 +697,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .side-services a { display: block; color: var(--white); font-size: 11px; padding: 8px 0; }
 .side-services a:hover { color: var(--green); text-decoration: none; }
 
-.side-interested { background: linear-gradient(rgba(14, 10, 92, .88), rgba(14, 10, 92, .88)), #2b2e7a url('../images/van-side.jpg') center / cover no-repeat; color: var(--white); text-align: center; padding: 26px 22px 28px; border: 6px solid var(--navy); }
+.side-interested { background: linear-gradient(rgba(14, 10, 92, .88), rgba(14, 10, 92, .88)), #2b2e7a url('../images/j-henry-plumbing-service-van-side-view.jpg') center / cover no-repeat; color: var(--white); text-align: center; padding: 26px 22px 28px; border: 6px solid var(--navy); }
 .side-interested .logo { margin-bottom: 14px; }
 .side-interested .logo-name { color: var(--green); }
 .side-interested .logo-sub { color: var(--white); }
