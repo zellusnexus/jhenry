@@ -18,6 +18,8 @@ Open `index.html` in a browser.
 | huntsville-al-plumber.html | Service area: Huntsville, AL |
 | madison-al-plumber.html | Service area: Madison, AL |
 | new-market-al-plumber.html | Service area: New Market, AL |
+| owens-cross-roads-al-plumber.html | Service area: Owens Cross Roads, AL |
+| toney-al-plumber.html | Service area: Toney, AL |
 
 All pages share `css/styles.css` and `js/main.js`. The header and footer are repeated in each file, so a nav or footer change needs to be made in every page.
 
@@ -48,7 +50,7 @@ Photos are referenced from `images/` and show a grey placeholder until added:
 | values-bg.jpg | Join Our Team "Core Values" background |
 | page-hero-pipes.jpg | Page hero on the service area pages |
 | area-van-sprinter.jpg | Sprinter van photo (Athens, Huntsville, Madison) |
-| area-van-transit.jpg | Transit van photo (Harvest, New Market) |
+| area-van-transit.jpg | Transit van photo (Harvest, New Market, Owens Cross Roads, Toney) |
 | different-banner.jpg | "What makes us different" banner (houses + van, ~1000x230) |
 
 Each See Our Work gallery shows the number of photos set in its `data-gallery` attribute (8 for Plumbing, 4 for the others). Add more `<img>` tags beyond that and a "View more" link appears to reveal them.
