@@ -727,6 +727,17 @@ img.img-missing { color: transparent; font-size: 0; }
 .different-item svg { width: 28px; height: 28px; flex-shrink: 0; }
 .different-item p { margin: 0; }
 
+/* ---------- Service pages ---------- */
+.service-main .service-tagline { font: 500 13px/1.5 var(--heading); text-transform: uppercase; color: var(--blue); margin: -.4em 0 1.2em; }
+.service-main .area-list:not(.cols) { margin-bottom: 0; }
+.service-main .contact-strip .btn { margin-top: 14px; }
+.service-rule { border: 0; border-top: 2px solid #a7dc8a; margin: 34px 0 0; }
+.service-book { margin: 26px 0 0 12px; }
+.side-services a.current { background: var(--green); margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
+.side-services a.current:hover { color: var(--white); }
+.footer-cols a.current { color: var(--green); }
+.different-navy .different-body { background: var(--navy); }
+
 /* ==========================================================
    Responsive
    ========================================================== */

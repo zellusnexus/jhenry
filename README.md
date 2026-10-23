@@ -20,6 +20,10 @@ Open `index.html` in a browser.
 | new-market-al-plumber.html | Service area: New Market, AL |
 | owens-cross-roads-al-plumber.html | Service area: Owens Cross Roads, AL |
 | toney-al-plumber.html | Service area: Toney, AL |
+| plumbing-services.html | Service: Plumbing |
+| sewer-drain-cleaning.html | Service: Sewer Drain Cleaning |
+| septic-systems.html | Service: Septic Systems |
+| pump-installation-services.html | Service: Pump Installation & Service |
 
 All pages share `css/styles.css` and `js/main.js`. The header and footer are repeated in each file, so a nav or footer change needs to be made in every page.
 
@@ -48,7 +52,11 @@ Photos are referenced from `images/` and show a grey placeholder until added:
 | gallery-plumbing-1…8.jpg, gallery-tankless-1…4.jpg, gallery-water-heater-1…4.jpg | See Our Work galleries (portrait) |
 | van-side.jpg | Join Our Team van photo |
 | values-bg.jpg | Join Our Team "Core Values" background |
-| page-hero-pipes.jpg | Page hero on the service area pages |
+| page-hero-pipes.jpg | Page hero on the service area and service pages |
+| plumbing-tech.jpg | Plumbing Services photo (technician under a sink) |
+| sewer-van.jpg | Sewer Drain Cleaning photo (van parked at a home) |
+| septic-install.jpg | Septic Systems photo (tank in an excavated yard) |
+| pump-install.jpg | Pump Installation photo (sump discharge piping) |
 | area-van-sprinter.jpg | Sprinter van photo (Athens, Huntsville, Madison) |
 | area-van-transit.jpg | Transit van photo (Harvest, New Market, Owens Cross Roads, Toney) |
 | different-banner.jpg | "What makes us different" banner (houses + van, ~1000x230) |
