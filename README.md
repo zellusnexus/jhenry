@@ -14,6 +14,7 @@ Open `index.html` in a browser.
 | join-our-team.html | Careers + application form |
 | privacy-policy.html | Privacy Policy / messaging terms |
 | athens-al-plumber.html | Service area: Athens, AL |
+| decatur-al-plumber.html | Service area: Decatur, AL |
 | harvest-al-plumber.html | Service area: Harvest, AL |
 | huntsville-al-plumber.html | Service area: Huntsville, AL |
 | madison-al-plumber.html | Service area: Madison, AL |
@@ -65,7 +66,7 @@ Photos are referenced from `images/` and show a grey placeholder until added:
 | sewer-van.jpg | Sewer Drain Cleaning photo (van parked at a home) |
 | septic-install.jpg | Septic Systems photo (tank in an excavated yard) |
 | pump-install.jpg | Pump Installation photo (sump discharge piping) |
-| area-van-sprinter.jpg | Sprinter van photo (Athens, Huntsville, Madison) |
+| area-van-sprinter.jpg | Sprinter van photo (Athens, Decatur, Huntsville, Madison) |
 | area-van-transit.jpg | Transit van photo (Harvest, New Market, Owens Cross Roads, Toney) |
 | different-banner.jpg | "What makes us different" banner (houses + van, ~1000x230) |
 
