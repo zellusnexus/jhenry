@@ -823,7 +823,7 @@ body.lightbox-open { overflow: hidden; }
 /* What makes us different */
 .different { padding: 30px 0 60px; }
 .different-inner { max-width: var(--max); }
-.different { --diff-overlap: clamp(80px, 13vw, 190px); }
+.different { --diff-overlap: clamp(90px, 15vw, 220px); }
 .different-banner { position: relative; z-index: 1; display: block; width: 100%; height: auto; max-height: none; object-fit: contain; margin-bottom: calc(var(--diff-overlap) * -1); }
 .different-banner.img-missing { aspect-ratio: 1000 / 230; }
 .different-body { background: var(--green); padding: calc(40px + var(--diff-overlap)) 50px 44px; }
