@@ -71,6 +71,79 @@ document.querySelectorAll('.work-gallery').forEach((gallery) => {
   });
 });
 
+// See Our Work: open photos in a slideshow, cycling through that section's photos
+const workSections = document.querySelectorAll('.work');
+if (workSections.length) {
+  const box = document.createElement('div');
+  box.className = 'lightbox';
+  box.setAttribute('role', 'dialog');
+  box.setAttribute('aria-modal', 'true');
+  box.setAttribute('aria-label', 'Photo viewer');
+  box.innerHTML = `
+    <img class="lightbox-img" alt="">
+    <button type="button" class="lightbox-btn lightbox-prev" aria-label="Previous photo"></button>
+    <button type="button" class="lightbox-btn lightbox-next" aria-label="Next photo"></button>
+    <button type="button" class="lightbox-btn lightbox-close" aria-label="Close"></button>
+    <p class="lightbox-count" aria-live="polite"></p>`;
+  document.body.append(box);
+  const boxImg = box.querySelector('.lightbox-img');
+  const count = box.querySelector('.lightbox-count');
+  let slides = [];
+  let index = 0;
+  let opener = null;
+
+  const show = (i) => {
+    index = (i + slides.length) % slides.length;
+    boxImg.src = slides[index].currentSrc || slides[index].src;
+    boxImg.alt = slides[index].alt;
+    count.textContent = `${index + 1} / ${slides.length}`;
+  };
+  const open = (section, img) => {
+    slides = [...section.querySelectorAll('.work-intro img, .work-gallery img')];
+    opener = img;
+    show(slides.indexOf(img));
+    box.classList.add('open');
+    document.body.classList.add('lightbox-open');
+    box.querySelector('.lightbox-close').focus();
+  };
+  const close = () => {
+    box.classList.remove('open');
+    document.body.classList.remove('lightbox-open');
+    if (opener) opener.focus();
+  };
+
+  workSections.forEach((section) => {
+    section.querySelectorAll('.work-intro img, .work-gallery img').forEach((img) => {
+      img.tabIndex = 0;
+      img.addEventListener('click', () => open(section, img));
+      img.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(section, img); }
+      });
+    });
+  });
+
+  box.querySelector('.lightbox-prev').addEventListener('click', () => show(index - 1));
+  box.querySelector('.lightbox-next').addEventListener('click', () => show(index + 1));
+  box.querySelector('.lightbox-close').addEventListener('click', close);
+  box.addEventListener('click', (e) => { if (e.target === box) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (!box.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') show(index - 1);
+    else if (e.key === 'ArrowRight') show(index + 1);
+  });
+
+  // Swipe left/right on touch screens
+  let touchX = null;
+  box.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener('touchend', (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 40) show(index + (dx < 0 ? 1 : -1));
+    touchX = null;
+  });
+}
+
 // Resume upload: show the chosen file name
 document.querySelectorAll('.upload-drop input[type=file]').forEach((input) => {
   const label = input.nextElementSibling;
