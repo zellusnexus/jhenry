@@ -40,28 +40,34 @@ document.querySelectorAll('.compare').forEach((compare) => {
   range.addEventListener('input', () => compare.style.setProperty('--pos', `${range.value}%`));
 });
 
-// See Our Work: show three rows of photos per gallery, then a View more button
+// See Our Work: show three rows of photos per gallery, with a View more / View less toggle
 document.querySelectorAll('.work-gallery').forEach((gallery) => {
   const photos = [...gallery.querySelectorAll('img')];
   const button = document.createElement('button');
   button.type = 'button';
-  button.className = 'btn btn-blue view-more';
-  button.innerHTML = '<em>View More</em>';
+  button.className = 'view-more';
+  button.setAttribute('aria-expanded', 'false');
+  button.innerHTML = '<span>View more</span><span class="chev" aria-hidden="true"></span>';
   gallery.append(button);
+  let expanded = false;
 
-  const showRows = () => {
+  const render = () => {
     const columns = getComputedStyle(gallery).gridTemplateColumns.split(' ').length;
     const limit = columns * 3;
-    photos.forEach((img, i) => { img.hidden = i >= limit; });
+    photos.forEach((img, i) => { img.hidden = !expanded && i >= limit; });
     button.hidden = photos.length <= limit;
+    button.setAttribute('aria-expanded', String(expanded));
+    button.firstElementChild.textContent = expanded ? 'View less' : 'View more';
   };
-  showRows();
-  window.addEventListener('resize', showRows);
+  render();
+  window.addEventListener('resize', render);
 
   button.addEventListener('click', () => {
-    window.removeEventListener('resize', showRows);
-    photos.forEach((img) => { img.hidden = false; });
-    button.remove();
+    // Keep the button where it is on screen while the gallery grows or shrinks
+    const before = button.getBoundingClientRect().top;
+    expanded = !expanded;
+    render();
+    if (!expanded) window.scrollBy(0, button.getBoundingClientRect().top - before);
   });
 });
 
