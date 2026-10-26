@@ -40,22 +40,6 @@ document.querySelectorAll('.compare').forEach((compare) => {
   range.addEventListener('input', () => compare.style.setProperty('--pos', `${range.value}%`));
 });
 
-// Work galleries: show the first N photos, "View more" reveals the rest
-document.querySelectorAll('[data-gallery]').forEach((gallery) => {
-  const limit = Number(gallery.dataset.gallery);
-  const extra = [...gallery.querySelectorAll('img')].slice(limit);
-  const button = gallery.querySelector('.view-more');
-  if (!extra.length) {
-    button.remove();
-    return;
-  }
-  extra.forEach((img) => { img.hidden = true; });
-  button.addEventListener('click', () => {
-    extra.forEach((img) => { img.hidden = false; });
-    button.remove();
-  });
-});
-
 // Resume upload: show the chosen file name
 document.querySelectorAll('.upload-drop input[type=file]').forEach((input) => {
   const label = input.nextElementSibling;
