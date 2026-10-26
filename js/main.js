@@ -40,6 +40,31 @@ document.querySelectorAll('.compare').forEach((compare) => {
   range.addEventListener('input', () => compare.style.setProperty('--pos', `${range.value}%`));
 });
 
+// See Our Work: show three rows of photos per gallery, then a View more button
+document.querySelectorAll('.work-gallery').forEach((gallery) => {
+  const photos = [...gallery.querySelectorAll('img')];
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'btn btn-blue view-more';
+  button.innerHTML = '<em>View More</em>';
+  gallery.append(button);
+
+  const showRows = () => {
+    const columns = getComputedStyle(gallery).gridTemplateColumns.split(' ').length;
+    const limit = columns * 3;
+    photos.forEach((img, i) => { img.hidden = i >= limit; });
+    button.hidden = photos.length <= limit;
+  };
+  showRows();
+  window.addEventListener('resize', showRows);
+
+  button.addEventListener('click', () => {
+    window.removeEventListener('resize', showRows);
+    photos.forEach((img) => { img.hidden = false; });
+    button.remove();
+  });
+});
+
 // Resume upload: show the chosen file name
 document.querySelectorAll('.upload-drop input[type=file]').forEach((input) => {
   const label = input.nextElementSibling;
