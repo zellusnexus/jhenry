@@ -144,6 +144,20 @@ if (workSections.length) {
   });
 }
 
+// Article share buttons: point each at the current page
+document.querySelectorAll('[data-share]').forEach((link) => {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title);
+  const targets = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+    x: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+    whatsapp: `https://wa.me/?text=${title}%20${url}`,
+    email: `mailto:?subject=${title}&body=${url}`,
+  };
+  link.href = targets[link.dataset.share];
+});
+
 // Resume upload: show the chosen file name
 document.querySelectorAll('.upload-drop input[type=file]').forEach((input) => {
   const label = input.nextElementSibling;
