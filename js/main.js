@@ -34,13 +34,6 @@ if (reviews.length) {
   setInterval(() => showReview(current + 1), 8000);
 }
 
-// FAQ: keep only one item open at a time
-document.querySelectorAll('.faq details').forEach((item, _, all) => {
-  item.addEventListener('toggle', () => {
-    if (item.open) all.forEach((other) => { if (other !== item) other.open = false; });
-  });
-});
-
 // Before/after slider (About)
 document.querySelectorAll('.compare').forEach((compare) => {
   const range = compare.querySelector('.compare-range');
@@ -103,6 +96,55 @@ if (vanImg && 'IntersectionObserver' in window) {
     vanImg.addEventListener('error', showVan, { once: true });
   }
 }
+
+// FAQ accordion: animate open/close and keep only one question open at a time
+const faqItems = document.querySelectorAll('.faq details');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+const animateHeight = (item, from, to, done) => {
+  if (item.faqAnim) item.faqAnim.cancel();
+  item.style.overflow = 'hidden';
+  const anim = item.animate(
+    { height: [`${from}px`, `${to}px`] },
+    { duration: reduceMotion.matches ? 0 : 300, easing: 'cubic-bezier(.4, 0, .2, 1)' }
+  );
+  item.faqAnim = anim;
+  anim.onfinish = () => {
+    item.faqAnim = null;
+    item.style.overflow = '';
+    if (done) done();
+  };
+};
+
+const openFaq = (item) => {
+  const from = item.offsetHeight;
+  item.classList.remove('closing');
+  item.open = true;
+  animateHeight(item, from, item.scrollHeight);
+};
+
+const closeFaq = (item) => {
+  const from = item.offsetHeight;
+  item.classList.add('closing');
+  animateHeight(item, from, item.querySelector('summary').offsetHeight, () => {
+    item.open = false;
+    item.classList.remove('closing');
+  });
+};
+
+faqItems.forEach((item) => {
+  item.querySelector('summary').addEventListener('click', (e) => {
+    e.preventDefault();
+    if (item.open && !item.classList.contains('closing')) {
+      closeFaq(item);
+    } else {
+      faqItems.forEach((other) => {
+        if (other !== item && other.open && !other.classList.contains('closing')) closeFaq(other);
+      });
+      openFaq(item);
+    }
+  });
+});
 
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
