@@ -79,5 +79,20 @@ document.querySelectorAll('img').forEach((img) => {
   else img.addEventListener('error', markMissing);
 });
 
+// Slide the hero van in from the right the first time it comes into view
+const heroVan = document.querySelector('.hero-van');
+if (heroVan && 'IntersectionObserver' in window) {
+  heroVan.classList.add('slide-in');
+  const vanObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      heroVan.classList.add('in-view');
+      vanObserver.disconnect();
+    }
+  }, { threshold: 0.2 });
+  // Force a reflow so the off-screen start position is applied before animating
+  void heroVan.offsetWidth;
+  vanObserver.observe(heroVan);
+}
+
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
