@@ -394,22 +394,16 @@ img.img-missing { color: transparent; font-size: 0; }
 }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after {
-  content: '\203A';
+  content: '';
   width: 22px;
   height: 22px;
   flex-shrink: 0;
   margin-left: 12px;
   border-radius: 50%;
-  background: var(--black);
-  color: var(--white);
-  display: grid;
-  place-items: center;
-  font-size: 16px;
-  line-height: 1;
-  transform: rotate(90deg);
-  transition: transform .2s;
+  background: var(--black) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M7 9.5l4 4 4-4' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat;
+  transition: transform .25s ease;
 }
-.faq details[open] summary::after { transform: rotate(-90deg); }
+.faq details[open] summary::after { transform: rotate(180deg); }
 .faq details p { margin: 0; padding: 0 16px 16px; font-size: 14px; color: var(--muted); }
 
 /* ---------- CTA bar ---------- */
