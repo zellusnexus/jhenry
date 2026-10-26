@@ -99,7 +99,7 @@ if (workSections.length) {
     count.textContent = `${index + 1} / ${slides.length}`;
   };
   const open = (section, img) => {
-    slides = [...section.querySelectorAll('.work-intro img, .work-gallery img')];
+    slides = [...section.querySelectorAll('.work-gallery img')];
     opener = img;
     show(slides.indexOf(img));
     box.classList.add('open');
@@ -113,7 +113,7 @@ if (workSections.length) {
   };
 
   workSections.forEach((section) => {
-    section.querySelectorAll('.work-intro img, .work-gallery img').forEach((img) => {
+    section.querySelectorAll('.work-gallery img').forEach((img) => {
       img.tabIndex = 0;
       img.addEventListener('click', () => open(section, img));
       img.addEventListener('keydown', (e) => {

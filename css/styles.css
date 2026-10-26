@@ -612,7 +612,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .work:not(.work-dark) .work-intro p { color: var(--muted); }
 .work-gallery { background: #e9e9e9; padding: 12px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .work-gallery img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; object-position: center; }
-.work-intro img, .work-gallery img { cursor: zoom-in; }
+.work-gallery img { cursor: zoom-in; }
 
 /* Photo slideshow (See Our Work) */
 .lightbox {
