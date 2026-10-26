@@ -574,6 +574,7 @@ img.img-missing { color: transparent; font-size: 0; }
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 25%;
   margin: 0 auto 16px;
   border: 5px solid #eee;
 }
