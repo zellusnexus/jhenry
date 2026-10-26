@@ -590,7 +590,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .dedicated p { color: var(--white); font-size: 16px; line-height: 1.9; max-width: 680px; margin: 0 auto 26px; }
 
 /* Memberships: why join */
-.why-join { display: grid; grid-template-columns: minmax(0, 340px) auto; justify-content: center; gap: 36px; align-items: center; max-width: 1100px; }
+.why-join { display: grid; grid-template-columns: minmax(0, 340px) auto; justify-content: center; gap: clamp(24px, 7vw, 120px); align-items: center; max-width: 1100px; }
 .why-join .page-subtitle { margin-top: 0; margin-bottom: .8em; color: var(--navy); font-size: clamp(26px, 2.4vw, 34px); }
 .why-join .jh-list { max-width: 330px; margin-bottom: 32px; }
 .why-join .jh-list li { padding-left: 30px; margin-bottom: 12px; line-height: 2; color: #444; }
