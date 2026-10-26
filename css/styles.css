@@ -590,13 +590,13 @@ img.img-missing { color: transparent; font-size: 0; }
 .dedicated p { color: var(--white); font-size: 16px; line-height: 1.9; max-width: 680px; margin: 0 auto 26px; }
 
 /* Memberships: why join */
-.why-join { display: grid; grid-template-columns: minmax(0, 340px) 180px; justify-content: center; gap: 70px; align-items: center; max-width: 1100px; }
+.why-join { display: grid; grid-template-columns: minmax(0, 340px) auto; justify-content: center; gap: 36px; align-items: center; max-width: 1100px; }
 .why-join .page-subtitle { margin-top: 0; margin-bottom: .8em; color: var(--navy); font-size: clamp(26px, 2.4vw, 34px); }
 .why-join .jh-list { max-width: 330px; margin-bottom: 32px; }
 .why-join .jh-list li { padding-left: 30px; margin-bottom: 12px; line-height: 2; color: #444; }
 .why-join .jh-list li::before { top: 7px; }
 .why-join .btn { text-transform: uppercase; font-size: 17px; padding: 16px 58px; }
-.why-join-mark { width: 100%; max-width: 170px; height: auto; justify-self: center; }
+.why-join-mark { width: 170px; height: auto; }
 .why-join-mark.img-missing { aspect-ratio: 1; }
 
 /* ---------- See our work ---------- */
@@ -855,7 +855,7 @@ img.img-missing { color: transparent; font-size: 0; }
   .local p { font-size: 14px; }
   .local-mark { width: 50px; height: 50px; }
 
-  .band-grid, .why-join, .hiring, .work-intro { grid-template-columns: 1fr; }
+  .band-grid, .hiring, .work-intro { grid-template-columns: 1fr; }
   .band-logo { justify-content: flex-start; }
   .team-grid { grid-template-columns: repeat(3, 1fr); }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
@@ -867,6 +867,8 @@ img.img-missing { color: transparent; font-size: 0; }
 }
 
 @media (max-width: 600px) {
+  .why-join { gap: 16px; }
+  .why-join-mark { width: 96px; }
   .topbar { font-size: 12px; padding: 8px 16px; }
   .header-inner { gap: 12px; min-height: 82px; }
   .header-phone { font-size: 14px; }
