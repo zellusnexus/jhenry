@@ -592,7 +592,8 @@ img.img-missing { color: transparent; font-size: 0; }
 /* Memberships: why join */
 .why-join { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; max-width: 1100px; }
 .why-join .page-subtitle { margin-top: 0; }
-.why-join-mark { width: 180px; height: 180px; justify-self: center; }
+.why-join-mark { width: 100%; max-width: 320px; height: auto; justify-self: center; }
+.why-join-mark.img-missing { aspect-ratio: 1; }
 
 /* ---------- See our work ---------- */
 .work { padding: 40px 0 50px; }
