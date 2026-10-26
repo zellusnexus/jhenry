@@ -275,7 +275,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .service-tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; padding: 30px 16px 36px; }
 .service-tile {
   position: relative;
-  aspect-ratio: 2.4 / 1;
+  aspect-ratio: 1 / 1;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -783,7 +783,6 @@ img.img-missing { color: transparent; font-size: 0; }
   .header-phone { font-size: 19px; }
   .header-cta .btn-sm { padding: 11px 30px; font-size: 15px; }
   .service-tiles { grid-template-columns: repeat(3, 1fr); }
-  .service-tile { aspect-ratio: 2.4 / 1; }
 }
 
 @media (max-width: 900px) {
@@ -850,7 +849,7 @@ img.img-missing { color: transparent; font-size: 0; }
   .form-row { grid-template-columns: 1fr; }
   .promise-cards { grid-template-columns: 1fr 1fr; }
   .service-tiles { grid-template-columns: 1fr 1fr; }
-  .service-tile:last-child { grid-column: span 2; }
+  .service-tile:last-child { grid-column: span 2; aspect-ratio: 2 / 1; }
   .services-cols { grid-template-columns: 1fr; }
   .news-grid { grid-template-columns: 1fr; }
   .footer-cols { grid-template-columns: 1fr; }
