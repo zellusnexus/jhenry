@@ -823,8 +823,10 @@ body.lightbox-open { overflow: hidden; }
 /* What makes us different */
 .different { padding: 30px 0 60px; }
 .different-inner { max-width: var(--max); }
-.different-banner { width: 100%; aspect-ratio: 1000 / 230; object-fit: cover; }
-.different-body { background: var(--green); padding: 40px 50px 44px; }
+.different { --diff-overlap: clamp(24px, 4vw, 56px); }
+.different-banner { position: relative; z-index: 1; display: block; width: 100%; height: auto; margin-bottom: calc(var(--diff-overlap) * -1); }
+.different-banner.img-missing { aspect-ratio: 1000 / 230; }
+.different-body { background: var(--green); padding: calc(40px + var(--diff-overlap)) 50px 44px; }
 .different-body h2 { color: var(--white); font-size: clamp(26px, 2.8vw, 40px); line-height: 1.4; }
 .different-body .underline { display: block; width: 54px; height: 3px; background: var(--white); margin: 6px 0 30px; }
 .different-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; }
@@ -993,7 +995,7 @@ body.lightbox-open { overflow: hidden; }
   .contact-strip { padding: 20px 0; }
   .brand-box { grid-template-columns: 1fr; padding: 24px; }
   .unsure-box { padding: 20px 22px; }
-  .different-body { padding: 30px 22px 34px; }
+  .different-body { padding: calc(30px + var(--diff-overlap)) 22px 34px; }
   .different-grid { grid-template-columns: 1fr; }
   .contact-layout .schedule-box { padding: 30px 20px 32px; }
   .post { grid-template-columns: 1fr; gap: 14px; margin-bottom: 34px; }
