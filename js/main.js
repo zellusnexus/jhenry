@@ -79,19 +79,29 @@ document.querySelectorAll('img').forEach((img) => {
   else img.addEventListener('error', markMissing);
 });
 
-// Slide the hero van in from the right the first time it comes into view
+// Slide the hero van in from the right the first time it comes into view,
+// once its photo has loaded (otherwise the slide finishes before it appears)
 const heroVan = document.querySelector('.hero-van');
-if (heroVan && 'IntersectionObserver' in window) {
+const vanImg = heroVan && heroVan.querySelector('img');
+if (vanImg && 'IntersectionObserver' in window) {
   heroVan.classList.add('slide-in');
-  const vanObserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      heroVan.classList.add('in-view');
-      vanObserver.disconnect();
-    }
-  }, { threshold: 0.2 });
-  // Force a reflow so the off-screen start position is applied before animating
-  void heroVan.offsetWidth;
-  vanObserver.observe(heroVan);
+  const showVan = () => heroVan.classList.add('in-view');
+  const watchVan = () => {
+    // Force a reflow so the off-screen start position is applied before animating
+    void heroVan.offsetWidth;
+    const vanObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        showVan();
+        vanObserver.disconnect();
+      }
+    }, { threshold: 0.2 });
+    vanObserver.observe(heroVan);
+  };
+  if (vanImg.complete && vanImg.naturalWidth) watchVan();
+  else {
+    vanImg.addEventListener('load', watchVan, { once: true });
+    vanImg.addEventListener('error', showVan, { once: true });
+  }
 }
 
 // Footer year
