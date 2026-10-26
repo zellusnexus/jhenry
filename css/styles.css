@@ -633,7 +633,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .value .icon { width: 44px; height: 44px; fill: none; stroke: var(--green); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; margin: 0 auto 14px; display: block; }
 .value h3 { color: var(--white); font-size: 18px; }
 
-.apply { padding-bottom: 60px; }
+.apply { padding: 60px 0; }
 .apply-inner { max-width: 900px; }
 .apply-form { display: grid; gap: 12px; margin-top: 24px; }
 .apply-form input[type=text],
