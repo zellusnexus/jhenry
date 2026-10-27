@@ -28,6 +28,7 @@
   --ico-x: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%23000' stroke='none' d='M3.5 3.5h4.7l12.3 17h-4.7z'/%3E%3Cpath d='M20 3.5l-6.6 7.6M10.6 13.4L4 20.5'/%3E%3C/svg%3E");
   --ico-linkedin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%23000' stroke='none' d='M5 9h3v10H5zM6.5 4.3a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM10.5 9h2.9v1.4c.5-.9 1.6-1.7 3.2-1.7 3 0 3.4 2 3.4 4.5V19h-3v-5c0-1.2 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5V19h-3z'/%3E%3C/svg%3E");
   --ico-whatsapp: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20l1.2-3.8A8.5 8.5 0 1 1 8 19z'/%3E%3Cpath fill='%23000' stroke='none' d='M9.3 7.6c-.4 0-1 .4-1 1.3 0 2.6 3.5 6.2 6.4 6.2.9 0 1.4-.6 1.4-1.1l-.1-.5-1.9-.9-.9.9c-1-.4-2.3-1.7-2.7-2.7l.9-.9-.8-1.9z'/%3E%3C/svg%3E");
+  --ico-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 11v6'/%3E%3Cpath d='M12 7.5h.01'/%3E%3C/svg%3E");
   --chev-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   --chev-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 14l5-5 5 5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   --chev-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 7l-5 5 5 5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -54,6 +55,7 @@
 .ico-x { --ico: var(--ico-x); }
 .ico-linkedin { --ico: var(--ico-linkedin); }
 .ico-whatsapp { --ico: var(--ico-whatsapp); }
+.ico-info { --ico: var(--ico-info); }
 
 /* Chevron icon: drawn in the current text color, same shape everywhere */
 .chev {
@@ -361,9 +363,10 @@ img.img-missing { color: transparent; font-size: 0; }
 .service-tile:hover::before { background: rgba(108, 191, 60, .7); }
 .service-tile span { position: relative; color: var(--white); font-family: var(--heading); font-weight: 700; text-transform: uppercase; font-size: 18px; text-align: center; padding: 0 10px; }
 /* closing text under the tiles: one centred column, matching the intro above them */
-/* closing text under the tiles: a plain grey bar, as wide as the tiles and
-   tucked right under them */
-.services-note { background: var(--light); padding: 34px 40px; color: var(--muted); }
+/* closing text under the tiles: a helpful note, as wide as the tiles and
+   tucked right under them, with an info icon beside the text */
+.services-note { display: flex; align-items: flex-start; gap: 22px; background: #eef0fb; border: 1px solid #d9ddf5; padding: 30px 36px; color: var(--muted); }
+.services-note > .ico { font-size: 34px; color: var(--blue); margin-top: 2px; }
 .services-note p { font-size: 15px; text-wrap: pretty; }    /* no single word left alone on the last line */
 .services-note p:first-child { margin-top: 0; }
 .services-note p:last-child { margin-bottom: 0; }
@@ -1031,7 +1034,8 @@ body.lightbox-open { overflow: hidden; }
 }
 
 @media (max-width: 600px) {
-  .services-note { padding: 24px 20px; }
+  .services-note { padding: 22px 18px; gap: 14px; }
+  .services-note > .ico { font-size: 28px; }
   .lightbox-btn { width: 42px; height: 42px; }
   .related-grid, .book-form { grid-template-columns: 1fr; }
   .article-gallery { grid-template-columns: repeat(2, 1fr); gap: 12px; }
