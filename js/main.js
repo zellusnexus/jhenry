@@ -261,6 +261,34 @@ faqItems.forEach((item) => {
   });
 });
 
+// Home service-area map: a still map (no dragging or zooming) with the
+// outline of the area we serve drawn on it
+const serviceMap = document.getElementById('service-map');
+if (serviceMap && window.L) {
+  const area = L.polygon([
+    [34.995, -87.120], [35.174, -86.599], [35.124, -86.441], [34.967, -86.320],
+    [34.523, -86.359], [34.304, -86.580], [34.310, -87.033], [34.778, -87.178]
+  ], { color: '#2b2ee0', weight: 2, fillColor: '#2b2ee0', fillOpacity: 0.12 });
+  const map = L.map(serviceMap, {
+    dragging: false, touchZoom: false, scrollWheelZoom: false, doubleClickZoom: false,
+    boxZoom: false, keyboard: false, zoomControl: false, attributionControl: false, zoomSnap: 0.25
+  });
+  // the map credit sits top left, clear of the contact card that overlaps the map
+  L.control.attribution({ position: 'topleft', prefix: false }).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd'
+  }).addTo(map);
+  area.addTo(map);
+  // leave room on the side the card covers: the right edge, or the bottom on narrow screens
+  const fit = () => {
+    const stacked = window.innerWidth <= 900;
+    map.fitBounds(area.getBounds(), { paddingTopLeft: [20, 20], paddingBottomRight: stacked ? [20, 60] : [80, 20] });
+  };
+  fit();
+  window.addEventListener('resize', () => { map.invalidateSize(); fit(); });
+}
+
 // Card carousels (home services and Plumbing News): step along one card at a
 // time with a 5 second pause between steps, looping forever by moving the
 // card that slid off to the other end. Arrows (shown on hover) step them by
