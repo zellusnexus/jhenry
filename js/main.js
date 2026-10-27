@@ -248,37 +248,53 @@ faqItems.forEach((item) => {
   });
 });
 
-// Home intro: on wide screens the schedule form drifts down beside the
-// taller text column as you scroll, finishing level with the photos
+// Home intro: on wide screens the schedule form glides to stay centred on
+// the screen beside the taller text column, never leaving the section
 const introText = document.querySelector('.intro-text');
 const introForm = document.querySelector('.intro-grid > .schedule-box');
 const twoColumns = window.matchMedia('(min-width: 901px)');
 
 if (introText && introForm) {
-  let ticking = false;
-  const placeForm = () => {
-    ticking = false;
+  const header = document.querySelector('.site-header');
+  let shift = 0;
+  let frame = null;
+
+  const targetShift = () => {
     const room = introText.offsetHeight - introForm.offsetHeight;
-    if (!twoColumns.matches || reduceMotion.matches || room <= 0) {
+    if (!twoColumns.matches || reduceMotion.matches || room <= 0) return null;
+    const headerH = header ? header.offsetHeight : 0;
+    const visible = window.innerHeight - headerH;
+    const formH = introForm.offsetHeight;
+    // where the form's top would sit with no shift
+    const naturalTop = introForm.getBoundingClientRect().top - shift;
+    // centre it in the space below the header; if it's taller than that, keep its top in view
+    const wantedTop = formH < visible ? headerH + (visible - formH) / 2 : headerH + 20;
+    return Math.min(Math.max(wantedTop - naturalTop, 0), room);
+  };
+
+  const step = () => {
+    frame = null;
+    const target = targetShift();
+    if (target === null) {
+      shift = 0;
       introForm.style.transform = '';
       return;
     }
-    // 0 as the text scrolls into view, 1 once its bottom reaches the bottom of the screen
-    const top = introText.getBoundingClientRect().top;
-    const progress = Math.min(Math.max((window.innerHeight - top) / introText.offsetHeight, 0), 1);
-    introForm.style.transform = `translateY(${Math.round(progress * room)}px)`;
+    // ease towards the target so the form trails the page slightly
+    const gap = target - shift;
+    shift = Math.abs(gap) < 0.5 ? target : shift + gap * 0.12;
+    introForm.style.transform = `translateY(${shift.toFixed(1)}px)`;
+    if (shift !== target) frame = requestAnimationFrame(step);
   };
+
   const requestPlace = () => {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(placeForm);
-    }
+    if (!frame) frame = requestAnimationFrame(step);
   };
   window.addEventListener('scroll', requestPlace, { passive: true });
   window.addEventListener('resize', requestPlace);
   window.addEventListener('load', requestPlace);
   twoColumns.addEventListener('change', requestPlace);
-  placeForm();
+  requestPlace();
 }
 
 // Footer year
