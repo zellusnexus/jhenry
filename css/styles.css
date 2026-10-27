@@ -344,7 +344,13 @@ img.img-missing { color: transparent; font-size: 0; }
 .services { padding: 60px 0 50px; }
 .services h2 { font-size: clamp(28px, 3vw, 44px); text-wrap: balance; }
 .services-head .eyebrow { font-size: 15px; margin: 0; }
-.service-tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; padding: 30px var(--gutter) 0; max-width: var(--wrap); margin: 0 auto; }
+.service-tiles { --per: 4; padding: 30px var(--gutter) 0; max-width: var(--wrap); margin: 0 auto; }
+/* without the carousel script the services sit in a plain grid */
+.service-rail { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+/* carousel: --per cards show at a time and the row steps along one card at a time */
+.service-tiles.is-carousel .service-track { overflow: hidden; }
+.service-tiles.is-carousel .service-rail { display: flex; }
+.service-tiles.is-carousel .service-tile { flex: 0 0 calc((100% - (var(--per) - 1) * 14px) / var(--per)); }
 /* each service: a plain photo with its name underneath, like the other photos on the page */
 .service-tile { display: block; color: var(--black); text-decoration: none !important; }
 .service-tile img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
@@ -966,7 +972,8 @@ body.lightbox-open { overflow: hidden; }
   .logo-name { font-size: 26px; }
   .logo-sub { font-size: 12px; }
   .header-cta .btn-sm { padding: 11px 30px; font-size: 15px; }
-  .service-tiles { grid-template-columns: repeat(3, 1fr); }
+  .service-tiles { --per: 3; }
+  .service-rail { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 900px) {
@@ -1047,7 +1054,8 @@ body.lightbox-open { overflow: hidden; }
   .promise-card .icon { grid-row: span 2; margin: 0; }
   .promise-card h3 { min-height: 0; margin-bottom: 6px; }
   .form-row { grid-template-columns: 1fr; }
-  .service-tiles { grid-template-columns: 1fr 1fr; }
+  .service-tiles { --per: 2; }
+  .service-rail { grid-template-columns: 1fr 1fr; }
   .news-grid { grid-template-columns: 1fr; }
   .footer-cols { grid-template-columns: 1fr; }
   .badge-img img { height: 64px; }
