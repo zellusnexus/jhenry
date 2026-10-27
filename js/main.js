@@ -248,6 +248,39 @@ faqItems.forEach((item) => {
   });
 });
 
+// Home services carousel: steps along one card at a time, pausing between
+// steps, and loops forever by moving the card that slid off to the end.
+// Holds still while hovered or focused; stays a plain grid for reduced motion
+const serviceTiles = document.querySelector('.service-tiles');
+
+if (serviceTiles && !reduceMotion.matches) {
+  const rail = serviceTiles.querySelector('.service-rail');
+  let held = false;
+  let moving = false;
+
+  const step = () => {
+    if (held || moving || document.hidden) return;
+    const first = rail.firstElementChild;
+    const gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
+    moving = true;
+    rail.style.transition = 'transform .7s ease';
+    rail.style.transform = `translateX(-${first.offsetWidth + gap}px)`;
+    rail.addEventListener('transitionend', () => {
+      rail.style.transition = 'none';
+      rail.appendChild(first);
+      rail.style.transform = '';
+      moving = false;
+    }, { once: true });
+  };
+
+  serviceTiles.classList.add('is-carousel');
+  serviceTiles.addEventListener('mouseenter', () => { held = true; });
+  serviceTiles.addEventListener('mouseleave', () => { held = false; });
+  serviceTiles.addEventListener('focusin', () => { held = true; });
+  serviceTiles.addEventListener('focusout', () => { held = false; });
+  setInterval(step, 3500);
+}
+
 // Home intro: on wide screens the schedule form sticks centred on the screen
 // beside the taller text column (CSS position: sticky); this just works out
 // how far down the screen "centred" is for the form's height
