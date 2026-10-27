@@ -248,29 +248,76 @@ faqItems.forEach((item) => {
   });
 });
 
-// Home services carousel: steps along one card at a time, pausing between
-// steps, and loops forever by moving the card that slid off to the end.
-// Holds still while hovered or focused; stays a plain grid for reduced motion
+// Home services carousel: steps along one card at a time with a 5 second
+// pause between steps, looping forever by moving the card that slid off to
+// the other end. Arrows (shown on hover) step it by hand. It holds still
+// while hovered or focused; with reduced motion it only moves by the arrows
 const serviceTiles = document.querySelector('.service-tiles');
 
-if (serviceTiles && !reduceMotion.matches) {
+if (serviceTiles) {
+  const track = serviceTiles.querySelector('.service-track');
   const rail = serviceTiles.querySelector('.service-rail');
+  const pause = 5000;
   let held = false;
   let moving = false;
+  let timer = null;
 
-  const step = () => {
-    if (held || moving || document.hidden) return;
-    const first = rail.firstElementChild;
-    const gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
+  const shift = () => rail.firstElementChild.offsetWidth + (parseFloat(getComputedStyle(rail).columnGap) || 0);
+  const slide = (to, done) => {
     moving = true;
-    rail.style.transition = 'transform .7s ease';
-    rail.style.transform = `translateX(-${first.offsetWidth + gap}px)`;
-    rail.addEventListener('transitionend', () => {
+    rail.style.transition = reduceMotion.matches ? 'none' : 'transform .7s ease';
+    rail.style.transform = to;
+    const finish = () => {
       rail.style.transition = 'none';
+      if (done) done();
+      moving = false;
+    };
+    if (reduceMotion.matches) finish();
+    else rail.addEventListener('transitionend', finish, { once: true });
+  };
+
+  const next = () => {
+    if (moving) return;
+    const first = rail.firstElementChild;
+    slide(`translateX(-${shift()}px)`, () => {
       rail.appendChild(first);
       rail.style.transform = '';
-      moving = false;
-    }, { once: true });
+    });
+  };
+  const prev = () => {
+    if (moving) return;
+    // put the last card in front, start one card to the left, then slide in
+    rail.style.transition = 'none';
+    rail.prepend(rail.lastElementChild);
+    rail.style.transform = `translateX(-${shift()}px)`;
+    rail.getBoundingClientRect();
+    slide('translateX(0)', () => { rail.style.transform = ''; });
+  };
+
+  const schedule = () => {
+    clearTimeout(timer);
+    if (reduceMotion.matches) return;
+    timer = setTimeout(() => {
+      if (!held && !document.hidden) next();
+      schedule();
+    }, pause);
+  };
+
+  const makeArrow = (dir, label, go) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `service-arrow ${dir}`;
+    btn.setAttribute('aria-label', label);
+    btn.addEventListener('click', () => { go(); schedule(); });
+    track.appendChild(btn);
+    return btn;
+  };
+  const arrows = [makeArrow('prev', 'Previous service', prev), makeArrow('next', 'Next service', next)];
+
+  // centre the arrows on the photos rather than the whole card
+  const placeArrows = () => {
+    const img = rail.querySelector('img');
+    arrows.forEach((btn) => { btn.style.top = `${img.offsetTop + img.offsetHeight / 2}px`; });
   };
 
   serviceTiles.classList.add('is-carousel');
@@ -278,7 +325,9 @@ if (serviceTiles && !reduceMotion.matches) {
   serviceTiles.addEventListener('mouseleave', () => { held = false; });
   serviceTiles.addEventListener('focusin', () => { held = true; });
   serviceTiles.addEventListener('focusout', () => { held = false; });
-  setInterval(step, 3500);
+  window.addEventListener('resize', placeArrows);
+  placeArrows();
+  schedule();
 }
 
 // Home intro: on wide screens the schedule form sticks centred on the screen
