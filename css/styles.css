@@ -360,7 +360,10 @@ img.img-missing { color: transparent; font-size: 0; }
 .service-tile::before { content: ''; position: absolute; inset: 0; background: rgba(40, 34, 140, .55); transition: background .25s; }
 .service-tile:hover::before { background: rgba(108, 191, 60, .7); }
 .service-tile span { position: relative; color: var(--white); font-family: var(--heading); font-weight: 700; text-transform: uppercase; font-size: 18px; text-align: center; padding: 0 10px; }
-.services-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; font-size: 15px; color: var(--muted); }
+/* closing text under the tiles: one centred column, matching the intro above them */
+.services-cols { text-align: center; color: var(--muted); }
+.services-cols p { text-wrap: pretty; }    /* no single word left alone on the last line */
+.services-cols p:last-child { margin-bottom: 0; }
 .services-cols a { color: var(--green); }
 
 /* ---------- Licensed bar ---------- */
@@ -1055,7 +1058,6 @@ body.lightbox-open { overflow: hidden; }
   .form-row { grid-template-columns: 1fr; }
   .service-tiles { grid-template-columns: 1fr 1fr; }
   .service-tile:last-child { grid-column: span 2; aspect-ratio: 2 / 1; }
-  .services-cols { grid-template-columns: 1fr; }
   .news-grid { grid-template-columns: 1fr; }
   .footer-cols { grid-template-columns: 1fr; }
   .badge-img img { height: 64px; }
