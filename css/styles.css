@@ -343,7 +343,7 @@ img.img-missing { color: transparent; font-size: 0; }
 
 /* ---------- Services ---------- */
 .services { padding: 60px 0 50px; }
-.services h2 { font-size: clamp(28px, 3vw, 44px); }
+.services h2 { font-size: clamp(28px, 3vw, 44px); text-wrap: balance; }
 .services .narrow p { font-size: 15px; }
 .service-tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; padding: 30px var(--gutter) 36px; max-width: var(--wrap); margin: 0 auto; }
 .service-tile {
