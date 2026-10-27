@@ -6,7 +6,7 @@
   --blue: #2b2ee0;
   --blue-dark: #1e20b8;
   --navy: #0e0a5c;
-  --navy-overlay: rgba(28, 22, 120, 0.72);
+  --hero-tint: rgba(107, 122, 153, 0.88);
   --green: #6cbf3c;
   --green-dark: #58a52d;
   --black: #111;
@@ -223,12 +223,12 @@ img.img-missing { color: transparent; font-size: 0; }
 .hero {
   position: relative;
   min-height: max(620px, calc(100vh - 160px));
-  background: #3a3f6b url('../images/j-henry-plumbing-huntsville-al-skyline-hero.jpg') center / cover no-repeat;
+  background: #6b7a99 url('../images/j-henry-plumbing-huntsville-al-skyline-hero.jpg') center / cover no-repeat;
   display: flex;
   align-items: flex-start;
   overflow: hidden;
 }
-.hero-overlay { position: absolute; inset: 0; background: var(--navy-overlay); }
+.hero-overlay { position: absolute; inset: 0; background: var(--hero-tint); }
 /* J. Henry icon over the hero photo (the photo goes in .hero's background, under the tint) */
 .hero-watermark {
   position: absolute;
