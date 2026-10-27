@@ -345,7 +345,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .services { padding: 60px 0 50px; }
 .services h2 { font-size: clamp(28px, 3vw, 44px); text-wrap: balance; }
 .services .narrow p { font-size: 15px; }
-.service-tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; padding: 30px var(--gutter) 36px; max-width: var(--wrap); margin: 0 auto; }
+.service-tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; padding: 30px var(--gutter) 10px; max-width: var(--wrap); margin: 0 auto; }
 .service-tile {
   position: relative;
   aspect-ratio: 1 / 1;
@@ -361,10 +361,11 @@ img.img-missing { color: transparent; font-size: 0; }
 .service-tile:hover::before { background: rgba(108, 191, 60, .7); }
 .service-tile span { position: relative; color: var(--white); font-family: var(--heading); font-weight: 700; text-transform: uppercase; font-size: 18px; text-align: center; padding: 0 10px; }
 /* closing text under the tiles: one centred column, matching the intro above them */
-/* closing text under the tiles: a grey box with a green edge */
-.services-note { max-width: 900px; margin: 0 auto; background: var(--light); border-left: 6px solid var(--green); padding: 30px 36px; color: var(--muted); }
-.services-note h3 { font-size: 22px; color: var(--black); margin-bottom: 10px; }
-.services-note p { text-wrap: pretty; }    /* no single word left alone on the last line */
+/* closing text under the tiles: a plain grey bar, as wide as the tiles and
+   tucked right under them, with the text centred at a readable line length */
+.services-note { background: var(--light); padding: 34px 40px; color: var(--muted); text-align: center; }
+.services-note p { font-size: 15px; max-width: 760px; margin-left: auto; margin-right: auto; text-wrap: pretty; }    /* no single word left alone on the last line */
+.services-note p:first-child { margin-top: 0; }
 .services-note p:last-child { margin-bottom: 0; }
 .services-note a { color: var(--green); }
 
