@@ -248,5 +248,38 @@ faqItems.forEach((item) => {
   });
 });
 
+// Home intro: on wide screens the schedule form drifts down beside the
+// taller text column as you scroll, finishing level with the photos
+const introText = document.querySelector('.intro-text');
+const introForm = document.querySelector('.intro-grid > .schedule-box');
+const twoColumns = window.matchMedia('(min-width: 901px)');
+
+if (introText && introForm) {
+  let ticking = false;
+  const placeForm = () => {
+    ticking = false;
+    const room = introText.offsetHeight - introForm.offsetHeight;
+    if (!twoColumns.matches || reduceMotion.matches || room <= 0) {
+      introForm.style.transform = '';
+      return;
+    }
+    // 0 as the text scrolls into view, 1 once its bottom reaches the bottom of the screen
+    const top = introText.getBoundingClientRect().top;
+    const progress = Math.min(Math.max((window.innerHeight - top) / introText.offsetHeight, 0), 1);
+    introForm.style.transform = `translateY(${Math.round(progress * room)}px)`;
+  };
+  const requestPlace = () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(placeForm);
+    }
+  };
+  window.addEventListener('scroll', requestPlace, { passive: true });
+  window.addEventListener('resize', requestPlace);
+  window.addEventListener('load', requestPlace);
+  twoColumns.addEventListener('change', requestPlace);
+  placeForm();
+}
+
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
