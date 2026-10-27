@@ -174,6 +174,19 @@ document.querySelectorAll('img').forEach((img) => {
   else img.addEventListener('error', markMissing);
 });
 
+// Home "Backed Up" photos: fade to the next photo every 5 seconds
+// (stays on the first photo for visitors who prefer reduced motion)
+const splitSlides = document.querySelectorAll('.split-slides img');
+if (splitSlides.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let shown = 0;
+  setInterval(() => {
+    if (document.hidden) return;
+    splitSlides[shown].classList.remove('is-active');
+    shown = (shown + 1) % splitSlides.length;
+    splitSlides[shown].classList.add('is-active');
+  }, 5000);
+}
+
 // Slide the hero van in from the right the first time it comes into view,
 // once its photo has loaded (otherwise the slide finishes before it appears)
 const heroVan = document.querySelector('.hero-van');
