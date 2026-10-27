@@ -248,53 +248,24 @@ faqItems.forEach((item) => {
   });
 });
 
-// Home intro: on wide screens the schedule form glides to stay centred on
-// the screen beside the taller text column, never leaving the section
-const introText = document.querySelector('.intro-text');
+// Home intro: on wide screens the schedule form sticks centred on the screen
+// beside the taller text column (CSS position: sticky); this just works out
+// how far down the screen "centred" is for the form's height
 const introForm = document.querySelector('.intro-grid > .schedule-box');
-const twoColumns = window.matchMedia('(min-width: 901px)');
 
-if (introText && introForm) {
+if (introForm) {
   const header = document.querySelector('.site-header');
-  let shift = 0;
-  let frame = null;
-
-  const targetShift = () => {
-    const room = introText.offsetHeight - introForm.offsetHeight;
-    if (!twoColumns.matches || reduceMotion.matches || room <= 0) return null;
+  const centreForm = () => {
     const headerH = header ? header.offsetHeight : 0;
     const visible = window.innerHeight - headerH;
     const formH = introForm.offsetHeight;
-    // where the form's top would sit with no shift
-    const naturalTop = introForm.getBoundingClientRect().top - shift;
-    // centre it in the space below the header; if it's taller than that, keep its top in view
-    const wantedTop = formH < visible ? headerH + (visible - formH) / 2 : headerH + 20;
-    return Math.min(Math.max(wantedTop - naturalTop, 0), room);
+    // if the form is taller than the space under the header, keep its top in view
+    const top = formH < visible ? headerH + (visible - formH) / 2 : headerH + 20;
+    introForm.style.setProperty('--form-top', `${Math.round(top)}px`);
   };
-
-  const step = () => {
-    frame = null;
-    const target = targetShift();
-    if (target === null) {
-      shift = 0;
-      introForm.style.transform = '';
-      return;
-    }
-    // ease towards the target so the form trails the page slightly
-    const gap = target - shift;
-    shift = Math.abs(gap) < 0.5 ? target : shift + gap * 0.12;
-    introForm.style.transform = `translateY(${shift.toFixed(1)}px)`;
-    if (shift !== target) frame = requestAnimationFrame(step);
-  };
-
-  const requestPlace = () => {
-    if (!frame) frame = requestAnimationFrame(step);
-  };
-  window.addEventListener('scroll', requestPlace, { passive: true });
-  window.addEventListener('resize', requestPlace);
-  window.addEventListener('load', requestPlace);
-  twoColumns.addEventListener('change', requestPlace);
-  requestPlace();
+  window.addEventListener('resize', centreForm);
+  window.addEventListener('load', centreForm);
+  centreForm();
 }
 
 // Footer year
