@@ -244,7 +244,7 @@ img.img-missing { color: transparent; font-size: 0; }
   height: var(--logo-size);
   max-width: none;
   object-fit: contain;
-  opacity: .2;
+  opacity: .14;
   pointer-events: none;
 }
 .hero-watermark.img-missing { visibility: hidden; }
