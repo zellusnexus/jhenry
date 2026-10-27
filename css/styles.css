@@ -490,21 +490,6 @@ img.img-missing { color: transparent; font-size: 0; }
 .badges { display: flex; justify-content: center; align-items: center; gap: 50px; padding-top: 36px; padding-bottom: 44px; flex-wrap: wrap; }
 .badge { display: inline-flex; align-items: center; gap: 10px; text-decoration: none !important; font-family: var(--body); }
 .badge small { display: block; font-size: 12px; line-height: 1.2; }
-.badge-bbb { background: #015a75; color: var(--white); padding: 10px 16px; border-radius: 3px; }
-.badge-bbb .bbb-logo { background: var(--white); color: #015a75; font-weight: 700; font-size: 15px; padding: 9px 6px; border-radius: 2px; }
-.badge-bbb b { font-size: 20px; }
-.badge-google { border: 1px solid #ccc; padding: 10px 16px; border-radius: 3px; color: var(--text); }
-.badge-google i { color: #f5a623; font-style: normal; font-size: 15px; }
-.badge-google .g { font-size: 34px; color: #4285f4; }
-.badge-seal {
-  width: 66px; height: 66px; border-radius: 50%;
-  background: radial-gradient(circle, #f6d77a 0%, #c99a2e 70%, #a37717 100%);
-  color: #5a3d00; font-size: 8px; font-weight: 700; text-transform: uppercase; text-align: center;
-  justify-content: center; line-height: 1.1; padding: 6px;
-}
-.badge-fb { background: #3b5998; color: var(--white); padding: 10px 16px; }
-.badge-fb b { font-size: 20px; }
-.badge-fb .f { background: var(--white); color: #3b5998; width: 28px; height: 28px; display: grid; place-items: center; font-size: 22px; }
 .badge-img img { height: 80px; width: auto; }
 .badge-img img.img-missing { width: 170px; }
 
