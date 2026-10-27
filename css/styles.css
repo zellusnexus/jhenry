@@ -278,21 +278,14 @@ img.img-missing { color: transparent; font-size: 0; }
 /* ---------- Intro + schedule ---------- */
 .intro { padding: 50px 0 60px; }
 .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
-.intro-text { padding-top: 10px; container-type: inline-size; }
+.intro-text { padding-top: 10px; }
 .intro-text h2 { font-size: clamp(26px, 2.6vw, 38px); text-wrap: balance; }
 .intro-text p { font-size: 15px; color: var(--muted); }
 .intro-text p.eyebrow { color: var(--blue); }
-.intro-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 30px; }
+/* one wide photo with the other two side by side underneath */
+.intro-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 30px; }
 .intro-gallery img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
-/* in a narrow column (or on phones) the three small photos become one wide photo with two below it */
-@container (max-width: 500px) {
-  .intro-gallery { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .intro-gallery img:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
-}
-@media (max-width: 640px) {
-  .intro-gallery { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .intro-gallery img:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
-}
+.intro-gallery img:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
 
 .schedule-box { background: var(--navy); color: var(--white); padding: 44px 40px 40px; }
 .schedule-box h2 { color: var(--white); font-size: clamp(22px, 2vw, 30px); }
