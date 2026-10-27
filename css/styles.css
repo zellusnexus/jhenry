@@ -6,7 +6,7 @@
   --blue: #2b2ee0;
   --blue-dark: #1e20b8;
   --navy: #0e0a5c;
-  --hero-tint: rgba(107, 122, 153, 0.7);
+  --hero-tint: rgba(28, 22, 120, 0.72);
   --green: #6cbf3c;
   --green-dark: #58a52d;
   --black: #111;
@@ -222,8 +222,9 @@ img.img-missing { color: transparent; font-size: 0; }
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  min-height: max(620px, calc(100vh - 160px));
-  background: #6b7a99 url('https://5e9x7vx89b.ucarecd.net/01575edc-05cf-4f2c-a5c0-fcb5ef22db7d/hero-h.webp') center / cover no-repeat;
+  --van-overlap: 160px;
+  min-height: max(720px, calc(100vh - 60px));
+  background: #2a2878 url('https://5e9x7vx89b.ucarecd.net/01575edc-05cf-4f2c-a5c0-fcb5ef22db7d/hero-h.webp') center / cover no-repeat;
   display: flex;
   align-items: flex-start;
   overflow: hidden;
@@ -233,8 +234,9 @@ img.img-missing { color: transparent; font-size: 0; }
 .hero-watermark {
   position: absolute;
   left: 50%;
-  top: 50px;
-  transform: translateX(-50%);
+  /* centered in the part of the hero above the van photo that overlaps its bottom */
+  top: calc((100% - var(--van-overlap)) / 2);
+  transform: translate(-50%, -50%);
   width: 620px;
   height: 620px;
   object-fit: contain;
@@ -242,7 +244,7 @@ img.img-missing { color: transparent; font-size: 0; }
   pointer-events: none;
 }
 .hero-watermark.img-missing { visibility: hidden; }
-.hero-content { position: relative; text-align: center; padding-top: 150px; padding-bottom: 200px; }
+.hero-content { position: relative; text-align: center; padding-top: 190px; padding-bottom: 260px; }
 .hero h1 { color: var(--white); font-weight: 600; font-size: clamp(34px, 4.1vw, 60px); letter-spacing: 0; margin-bottom: .5em; }
 .hero-tagline {
   color: var(--white);
@@ -1022,8 +1024,8 @@ body.lightbox-open { overflow: hidden; }
   .logo-mark { width: 38px; height: 38px; }
   .logo-img { height: 40px; }
   .logo-img.img-missing { width: 140px; }
-  .hero { min-height: 500px; }
-  .hero-content { padding-top: 70px; padding-bottom: 150px; }
+  .hero { --van-overlap: 110px; min-height: 560px; }
+  .hero-content { padding-top: 90px; padding-bottom: 190px; }
   .hero-watermark { width: 300px; height: 300px; }
   .hero-buttons { gap: 14px; }
   .hero-buttons .btn { font-size: 16px; padding: 12px 36px; }
