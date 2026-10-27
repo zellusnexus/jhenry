@@ -248,15 +248,14 @@ faqItems.forEach((item) => {
   });
 });
 
-// Home services carousel: steps along one card at a time with a 5 second
-// pause between steps, looping forever by moving the card that slid off to
-// the other end. Arrows (shown on hover) step it by hand. It holds still
-// while hovered or focused; with reduced motion it only moves by the arrows
-const serviceTiles = document.querySelector('.service-tiles');
-
-if (serviceTiles) {
-  const track = serviceTiles.querySelector('.service-track');
-  const rail = serviceTiles.querySelector('.service-rail');
+// Card carousels (home services and Plumbing News): step along one card at a
+// time with a 5 second pause between steps, looping forever by moving the
+// card that slid off to the other end. Arrows (shown on hover) step them by
+// hand. They hold still while hovered or focused; with reduced motion they
+// only move by the arrows
+document.querySelectorAll('.card-carousel').forEach((carousel) => {
+  const track = carousel.querySelector('.card-carousel-track');
+  const rail = carousel.querySelector('.card-carousel-rail');
   const pause = 5000;
   let held = false;
   let moving = false;
@@ -306,29 +305,31 @@ if (serviceTiles) {
   const makeArrow = (dir, label, go) => {
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = `service-arrow ${dir}`;
+    btn.className = `card-carousel-arrow ${dir}`;
     btn.setAttribute('aria-label', label);
     btn.addEventListener('click', () => { go(); schedule(); });
     track.appendChild(btn);
     return btn;
   };
-  const arrows = [makeArrow('prev', 'Previous service', prev), makeArrow('next', 'Next service', next)];
+  const arrows = [makeArrow('prev', 'Previous', prev), makeArrow('next', 'Next', next)];
 
   // centre the arrows on the photos rather than the whole card
   const placeArrows = () => {
     const img = rail.querySelector('img');
-    arrows.forEach((btn) => { btn.style.top = `${img.offsetTop + img.offsetHeight / 2}px`; });
+    const top = img.getBoundingClientRect().top - track.getBoundingClientRect().top;
+    arrows.forEach((btn) => { btn.style.top = `${top + img.offsetHeight / 2}px`; });
   };
 
-  serviceTiles.classList.add('is-carousel');
-  serviceTiles.addEventListener('mouseenter', () => { held = true; });
-  serviceTiles.addEventListener('mouseleave', () => { held = false; });
-  serviceTiles.addEventListener('focusin', () => { held = true; });
-  serviceTiles.addEventListener('focusout', () => { held = false; });
+  carousel.classList.add('is-carousel');
+  carousel.addEventListener('mouseenter', () => { held = true; });
+  carousel.addEventListener('mouseleave', () => { held = false; });
+  carousel.addEventListener('focusin', () => { held = true; });
+  carousel.addEventListener('focusout', () => { held = false; });
   window.addEventListener('resize', placeArrows);
+  window.addEventListener('load', placeArrows);
   placeArrows();
   schedule();
-}
+});
 
 // Home intro: on wide screens the schedule form sticks centred on the screen
 // beside the taller text column (CSS position: sticky); this just works out
