@@ -1028,8 +1028,8 @@ body.lightbox-open { overflow: hidden; }
   .logo-mark { width: 38px; height: 38px; }
   .logo-img { height: 40px; }
   .logo-img.img-missing { width: 140px; }
-  /* on phones the logo is allowed to run past the screen edges (the hero clips it) */
-  .hero { --van-overlap: 110px; --logo-size: 440px; --logo-gap: 30px; min-height: max(calc(var(--logo-size) + 2 * var(--logo-gap) + var(--van-overlap)), 520px); }
+  /* on phones the logo runs past the screen edges and may tuck behind the van; the hero keeps a compact height */
+  .hero { --van-overlap: 110px; --logo-size: 540px; min-height: 560px; }
   .hero-content { padding-top: 120px; padding-bottom: 170px; }
   .hero-buttons { gap: 14px; }
   .hero-buttons .btn { font-size: 16px; padding: 12px 36px; }
