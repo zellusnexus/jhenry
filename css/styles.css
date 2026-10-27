@@ -432,11 +432,11 @@ img.img-missing { color: transparent; font-size: 0; }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
 /* ---------- Map + contact ---------- */
-/* the map fills the section and the contact card floats over its left side */
-.map-contact { position: relative; min-height: 600px; }
-.map-contact iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
-.contact-wrap { position: relative; padding-top: 50px; padding-bottom: 50px; pointer-events: none; }
-.contact-card { pointer-events: auto; max-width: 430px; background: var(--white); box-shadow: 0 6px 24px rgba(20, 20, 60, .2); padding: 34px 32px; }
+/* the service-area map picture with the contact card overlapping its right edge */
+.map-contact { padding: 60px 0; }
+.contact-wrap { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; }
+.service-map { width: 100%; height: auto; display: block; }
+.contact-card { position: relative; z-index: 1; margin-left: -60px; background: var(--white); box-shadow: 0 6px 24px rgba(20, 20, 60, .2); padding: 34px 32px; }
 .contact-card h2 { font-size: 26px; margin-bottom: 10px; }
 .contact-intro { font-size: 14px; color: var(--muted); margin: 0 0 22px; }
 .contact-row { display: flex; gap: 14px; align-items: flex-start; }
@@ -999,6 +999,9 @@ body.lightbox-open { overflow: hidden; }
   .has-dropdown.open .dropdown { display: block; }
 
   .intro-grid, .split { grid-template-columns: 1fr; }
+  /* the map sits on top and the card overlaps its bottom edge */
+  .contact-wrap { grid-template-columns: 1fr; }
+  .contact-card { margin: -40px 12px 0; }
   .schedule-box { padding: 32px 20px; }
   .promise-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .promise-card h3 { min-height: 0; }
@@ -1026,10 +1029,6 @@ body.lightbox-open { overflow: hidden; }
 }
 
 @media (max-width: 600px) {
-  /* phones: the map sits on top and the card overlaps its bottom edge */
-  .map-contact { min-height: 0; }
-  .map-contact iframe { position: static; height: 260px; }
-  .contact-wrap { margin-top: -40px; padding-top: 0; }
   .contact-card { padding: 26px 22px; }
   .lightbox-btn { width: 42px; height: 42px; }
   .related-grid, .book-form { grid-template-columns: 1fr; }
