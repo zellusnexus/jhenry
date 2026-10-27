@@ -6,7 +6,7 @@
   --blue: #2b2ee0;
   --blue-dark: #1e20b8;
   --navy: #0e0a5c;
-  --hero-tint: rgba(107, 122, 153, 0.88);
+  --hero-tint: rgba(107, 122, 153, 0.7);
   --green: #6cbf3c;
   --green-dark: #58a52d;
   --black: #111;
@@ -223,7 +223,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .hero {
   position: relative;
   min-height: max(620px, calc(100vh - 160px));
-  background: #6b7a99 url('../images/j-henry-plumbing-huntsville-al-skyline-hero.jpg') center / cover no-repeat;
+  background: #6b7a99 url('https://5e9x7vx89b.ucarecd.net/01575edc-05cf-4f2c-a5c0-fcb5ef22db7d/hero-h.webp') center / cover no-repeat;
   display: flex;
   align-items: flex-start;
   overflow: hidden;
@@ -238,7 +238,7 @@ img.img-missing { color: transparent; font-size: 0; }
   width: 620px;
   height: 620px;
   object-fit: contain;
-  opacity: .22;
+  opacity: .2;
   pointer-events: none;
 }
 .hero-watermark.img-missing { visibility: hidden; }
