@@ -362,9 +362,9 @@ img.img-missing { color: transparent; font-size: 0; }
 .service-tile span { position: relative; color: var(--white); font-family: var(--heading); font-weight: 700; text-transform: uppercase; font-size: 18px; text-align: center; padding: 0 10px; }
 /* closing text under the tiles: one centred column, matching the intro above them */
 /* closing text under the tiles: a plain grey bar, as wide as the tiles and
-   tucked right under them, with the text centred at a readable line length */
-.services-note { background: var(--light); padding: 34px 40px; color: var(--muted); text-align: center; }
-.services-note p { font-size: 15px; max-width: 760px; margin-left: auto; margin-right: auto; text-wrap: pretty; }    /* no single word left alone on the last line */
+   tucked right under them */
+.services-note { background: var(--light); padding: 34px 40px; color: var(--muted); }
+.services-note p { font-size: 15px; text-wrap: pretty; }    /* no single word left alone on the last line */
 .services-note p:first-child { margin-top: 0; }
 .services-note p:last-child { margin-bottom: 0; }
 .services-note a { color: var(--green); }
