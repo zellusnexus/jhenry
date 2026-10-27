@@ -361,10 +361,9 @@ img.img-missing { color: transparent; font-size: 0; }
 .service-tile:hover::before { background: rgba(108, 191, 60, .7); }
 .service-tile span { position: relative; color: var(--white); font-family: var(--heading); font-weight: 700; text-transform: uppercase; font-size: 18px; text-align: center; padding: 0 10px; }
 /* closing text under the tiles: one centred column, matching the intro above them */
-/* closing text under the tiles: a white card that hangs down from the bottom
-   of the tile row (flush against it, slightly inset, shaded where it comes
-   out from under the tiles) */
-.services-note { margin: 0 clamp(12px, 3vw, 36px); background: var(--white); box-shadow: inset 0 10px 10px -10px rgba(20, 20, 60, .25), 0 12px 22px -10px rgba(20, 20, 60, .25); padding: 30px 36px; color: var(--muted); }
+/* closing text under the tiles: a white card flush against the bottom of the
+   tile row and as wide as it, with a soft shadow underneath */
+.services-note { background: var(--white); box-shadow: 0 12px 22px -10px rgba(20, 20, 60, .25); padding: 30px 36px; color: var(--muted); }
 .services-note p { font-size: 15px; text-wrap: pretty; }    /* no single word left alone on the last line */
 .services-note p:first-child { margin-top: 0; }
 .services-note p:last-child { margin-bottom: 0; }
