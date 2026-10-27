@@ -345,6 +345,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .services h2, .news-section h2 { font-size: clamp(28px, 3vw, 44px); text-wrap: balance; }
 .section-head h2 { margin-bottom: .3em; }
 .section-head .eyebrow { font-size: 15px; margin: 0; }
+.section-head .section-intro { font-size: 15px; color: var(--muted); margin: 0; max-width: 760px; text-wrap: pretty; }
 .service-tiles { --per: 4; }
 /* card carousel (home services and Plumbing News): --per cards show at a time and the row
    steps along one card at a time. Without the script the cards sit in a plain grid */
@@ -374,11 +375,10 @@ img.img-missing { color: transparent; font-size: 0; }
   .card-carousel-arrow::before { width: 16px; height: 16px; }
 }
 /* the section's text, grouped together below the tiles */
-.services-text, .section-text { padding-top: 28px; color: var(--muted); }
-.services-text p, .section-text { font-size: 15px; text-wrap: pretty; }    /* no single word left alone on the last line */
+.services-text { padding-top: 28px; color: var(--muted); }
+.services-text p { font-size: 15px; text-wrap: pretty; }    /* no single word left alone on the last line */
 .services-text p:first-child { margin-top: 0; }
-.services-text p:last-child, .section-text { margin-bottom: 0; }
-.section-text { margin-top: 0; }
+.services-text p:last-child { margin-bottom: 0; }
 .services-text a { color: var(--green); }
 
 /* ---------- Licensed bar ---------- */
@@ -461,7 +461,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .contact-card p a { font-size: 17px; }
 
 /* ---------- News + FAQ ---------- */
-.news-section { padding: 60px 0 10px; }
+.news-section { padding: 60px 0 20px; }
 .news-carousel { --per: 4; }
 .news-carousel .news-card img { height: auto; aspect-ratio: 3 / 2; }
 .faq-section { padding: 50px 0 50px; }
