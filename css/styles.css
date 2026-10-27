@@ -479,7 +479,6 @@ img.img-missing { color: transparent; font-size: 0; }
 .cta-bar p { color: var(--white); font-family: var(--heading); font-weight: 600; text-transform: uppercase; font-size: 14px; margin: 4px 0 0; }
 .cta-buttons { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
 .cta-buttons .btn { font-size: 16px; padding: 14px 36px; }
-.btn .ico { width: 1.1em; height: 1.1em; margin-right: .35em; vertical-align: -0.2em; }
 
 /* ---------- Share ---------- */
 .share { background: var(--blue); text-align: center; padding: 26px 16px; }
