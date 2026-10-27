@@ -28,6 +28,7 @@
   --ico-x: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%23000' stroke='none' d='M3.5 3.5h4.7l12.3 17h-4.7z'/%3E%3Cpath d='M20 3.5l-6.6 7.6M10.6 13.4L4 20.5'/%3E%3C/svg%3E");
   --ico-linkedin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%23000' stroke='none' d='M5 9h3v10H5zM6.5 4.3a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM10.5 9h2.9v1.4c.5-.9 1.6-1.7 3.2-1.7 3 0 3.4 2 3.4 4.5V19h-3v-5c0-1.2 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5V19h-3z'/%3E%3C/svg%3E");
   --ico-whatsapp: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20l1.2-3.8A8.5 8.5 0 1 1 8 19z'/%3E%3Cpath fill='%23000' stroke='none' d='M9.3 7.6c-.4 0-1 .4-1 1.3 0 2.6 3.5 6.2 6.4 6.2.9 0 1.4-.6 1.4-1.1l-.1-.5-1.9-.9-.9.9c-1-.4-2.3-1.7-2.7-2.7l.9-.9-.8-1.9z'/%3E%3C/svg%3E");
+  --ico-shield: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z'/%3E%3Cpath d='M9 12l2 2 4-4'/%3E%3C/svg%3E");
   --chev-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   --chev-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 14l5-5 5 5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   --chev-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 7l-5 5 5 5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -49,6 +50,7 @@
 .ico-email { --ico: var(--ico-email); }
 .ico-location { --ico: var(--ico-location); }
 .ico-clock { --ico: var(--ico-clock); }
+.ico-shield { --ico: var(--ico-shield); }
 .ico-facebook { --ico: var(--ico-facebook); }
 .ico-google { --ico: var(--ico-google); }
 .ico-x { --ico: var(--ico-x); }
@@ -429,37 +431,19 @@ img.img-missing { color: transparent; font-size: 0; }
 .review cite { font-style: italic; font-weight: 700; font-size: 16px; }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
-/* ---------- Local strip ---------- */
-.local { padding: 40px 0; }
-.local-inner { display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 1000px; }
-.local-mark { width: 70px; height: 70px; flex-shrink: 0; }
-.local p { font-family: var(--heading); font-weight: 600; text-transform: uppercase; font-size: 17px; color: var(--black); margin: 0; line-height: 1.5; }
-
 /* ---------- Map + contact ---------- */
-.map-contact { display: grid; grid-template-columns: 1fr 1fr; min-height: 440px; position: relative; }
-.map iframe { width: 100%; height: 100%; min-height: 440px; border: 0; display: block; }
-.contact-panel {
-  background: var(--green);
-  position: relative;
-  padding: 40px var(--gutter);
-  display: flex;
-  align-items: center;
-}
-.contact-panel::before {
-  content: '';
-  position: absolute;
-  left: -150px;
-  top: 0;
-  bottom: 0;
-  width: 152px;
-  background: var(--green);
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
-}
-.contact-card { background: var(--white); padding: 34px 30px 30px; width: 320px; max-width: 100%; margin-left: 70px; position: relative; z-index: 1; }
-.contact-card h2 { font-size: 22px; }
-.contact-card h4 { font-size: 14px; margin: 16px 0 4px; }
-.contact-card p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.7; }
-.contact-card p a { font-size: 17px; }
+/* the map fills the section and the contact card floats over its left side */
+.map-contact { position: relative; min-height: 600px; }
+.map-contact iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+.contact-wrap { position: relative; padding-top: 50px; padding-bottom: 50px; pointer-events: none; }
+.contact-card { pointer-events: auto; max-width: 430px; background: var(--white); box-shadow: 0 6px 24px rgba(20, 20, 60, .2); padding: 34px 32px; }
+.contact-card h2 { font-size: 26px; margin-bottom: 10px; }
+.contact-intro { font-size: 14px; color: var(--muted); margin: 0 0 22px; }
+.contact-row { display: flex; gap: 14px; align-items: flex-start; }
+.contact-row + .contact-row { margin-top: 18px; }
+.contact-row .ico { font-size: 22px; color: var(--green); margin-top: 2px; }
+.contact-row h3 { font-size: 15px; margin: 0 0 2px; }
+.contact-row p { font-size: 15px; color: var(--muted); margin: 0; line-height: 1.6; }
 
 /* ---------- News + FAQ ---------- */
 .news-section { padding: 60px 0 20px; }
@@ -1014,19 +998,15 @@ body.lightbox-open { overflow: hidden; }
   .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 0; display: none; padding: 0 0 0 14px; }
   .has-dropdown.open .dropdown { display: block; }
 
-  .intro-grid, .split, .map-contact { grid-template-columns: 1fr; }
+  .intro-grid, .split { grid-template-columns: 1fr; }
   .schedule-box { padding: 32px 20px; }
   .promise-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .promise-card h3 { min-height: 0; }
-  .contact-panel::before { display: none; }
-  .contact-card { margin: 0 auto; }
   .split-content { padding: 40px var(--gutter); }
   .cta-inner { flex-direction: column; gap: 14px; text-align: center; }
   .cta-buttons { align-items: center; }
   .footer-cols { grid-template-columns: repeat(2, 1fr); }
   .footer-bottom { flex-direction: column; gap: 4px; text-align: center; }
-  .local p { font-size: 14px; }
-  .local-mark { width: 50px; height: 50px; }
 
   .band-grid, .hiring, .work-intro { grid-template-columns: 1fr; }
   .band-logo { justify-content: flex-start; }
@@ -1046,6 +1026,11 @@ body.lightbox-open { overflow: hidden; }
 }
 
 @media (max-width: 600px) {
+  /* phones: the map sits on top and the card overlaps its bottom edge */
+  .map-contact { min-height: 0; }
+  .map-contact iframe { position: static; height: 260px; }
+  .contact-wrap { margin-top: -40px; padding-top: 0; }
+  .contact-card { padding: 26px 22px; }
   .lightbox-btn { width: 42px; height: 42px; }
   .related-grid, .book-form { grid-template-columns: 1fr; }
   .article-gallery { grid-template-columns: repeat(2, 1fr); gap: 12px; }
