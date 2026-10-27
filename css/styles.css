@@ -17,11 +17,41 @@
   --heading: 'Oswald', 'Arial Narrow', sans-serif;
   --body: 'Roboto', Arial, sans-serif;
   --max: 1200px;
+  --ico-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 3.5h3.2l1.6 4.4-2.2 1.4a11.5 11.5 0 0 0 6.1 6.1l1.4-2.2 4.4 1.6v3.2a2 2 0 0 1-2.1 2A17 17 0 0 1 3 5.6a2 2 0 0 1 2-2.1z'/%3E%3C/svg%3E");
+  --ico-email: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Cpath d='M3.5 6.5l8.5 6.5 8.5-6.5'/%3E%3C/svg%3E");
+  --ico-location: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z'/%3E%3Ccircle cx='12' cy='9.5' r='2.5'/%3E%3C/svg%3E");
+  --ico-clock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3.5 2'/%3E%3C/svg%3E");
+  --ico-facebook: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%23000' stroke='none' d='M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H7.9v3h2.6V21z'/%3E%3C/svg%3E");
+  --ico-google: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 12.3c0 4.6-3.1 8-8 8a8.3 8.3 0 1 1 5.6-14.4'/%3E%3Cpath d='M12.4 12.3H20'/%3E%3C/svg%3E");
+  --ico-x: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%23000' stroke='none' d='M3.5 3.5h4.7l12.3 17h-4.7z'/%3E%3Cpath d='M20 3.5l-6.6 7.6M10.6 13.4L4 20.5'/%3E%3C/svg%3E");
+  --ico-linkedin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%23000' stroke='none' d='M5 9h3v10H5zM6.5 4.3a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM10.5 9h2.9v1.4c.5-.9 1.6-1.7 3.2-1.7 3 0 3.4 2 3.4 4.5V19h-3v-5c0-1.2 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5V19h-3z'/%3E%3C/svg%3E");
+  --ico-whatsapp: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20l1.2-3.8A8.5 8.5 0 1 1 8 19z'/%3E%3Cpath fill='%23000' stroke='none' d='M9.3 7.6c-.4 0-1 .4-1 1.3 0 2.6 3.5 6.2 6.4 6.2.9 0 1.4-.6 1.4-1.1l-.1-.5-1.9-.9-.9.9c-1-.4-2.3-1.7-2.7-2.7l.9-.9-.8-1.9z'/%3E%3C/svg%3E");
   --chev-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   --chev-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 14l5-5 5 5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   --chev-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 7l-5 5 5 5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   --chev-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 7l5 5-5 5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
+
+/* Site icons: one set, drawn in the current text color, used for every phone/email/location/social icon */
+.ico {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  vertical-align: -0.15em;
+  background: currentColor;
+  -webkit-mask: var(--ico) center / contain no-repeat;
+  mask: var(--ico) center / contain no-repeat;
+}
+.ico-phone { --ico: var(--ico-phone); }
+.ico-email { --ico: var(--ico-email); }
+.ico-location { --ico: var(--ico-location); }
+.ico-clock { --ico: var(--ico-clock); }
+.ico-facebook { --ico: var(--ico-facebook); }
+.ico-google { --ico: var(--ico-google); }
+.ico-x { --ico: var(--ico-x); }
+.ico-linkedin { --ico: var(--ico-linkedin); }
+.ico-whatsapp { --ico: var(--ico-whatsapp); }
 
 /* Chevron icon: drawn in the current text color, same shape everywhere */
 .chev {
@@ -449,6 +479,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .cta-bar p { color: var(--white); font-family: var(--heading); font-weight: 600; text-transform: uppercase; font-size: 14px; margin: 4px 0 0; }
 .cta-buttons { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
 .cta-buttons .btn { font-size: 16px; padding: 14px 36px; }
+.btn .ico { width: 1.1em; height: 1.1em; margin-right: .35em; vertical-align: -0.2em; }
 
 /* ---------- Share ---------- */
 .share { background: var(--blue); text-align: center; padding: 26px 16px; }
@@ -459,21 +490,6 @@ img.img-missing { color: transparent; font-size: 0; }
 .badges { display: flex; justify-content: center; align-items: center; gap: 50px; padding-top: 36px; padding-bottom: 44px; flex-wrap: wrap; }
 .badge { display: inline-flex; align-items: center; gap: 10px; text-decoration: none !important; font-family: var(--body); }
 .badge small { display: block; font-size: 12px; line-height: 1.2; }
-.badge-bbb { background: #015a75; color: var(--white); padding: 10px 16px; border-radius: 3px; }
-.badge-bbb .bbb-logo { background: var(--white); color: #015a75; font-weight: 700; font-size: 15px; padding: 9px 6px; border-radius: 2px; }
-.badge-bbb b { font-size: 20px; }
-.badge-google { border: 1px solid #ccc; padding: 10px 16px; border-radius: 3px; color: var(--text); }
-.badge-google i { color: #f5a623; font-style: normal; font-size: 15px; }
-.badge-google .g { font-size: 34px; color: #4285f4; }
-.badge-seal {
-  width: 66px; height: 66px; border-radius: 50%;
-  background: radial-gradient(circle, #f6d77a 0%, #c99a2e 70%, #a37717 100%);
-  color: #5a3d00; font-size: 8px; font-weight: 700; text-transform: uppercase; text-align: center;
-  justify-content: center; line-height: 1.1; padding: 6px;
-}
-.badge-fb { background: #3b5998; color: var(--white); padding: 10px 16px; }
-.badge-fb b { font-size: 20px; }
-.badge-fb .f { background: var(--white); color: #3b5998; width: 28px; height: 28px; display: grid; place-items: center; font-size: 22px; }
 .badge-img img { height: 80px; width: auto; }
 .badge-img img.img-missing { width: 170px; }
 
@@ -490,7 +506,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .footer-cols .green-link { color: var(--green); }
 .footer-cols .btn { color: var(--white); margin-top: 6px; }
 .socials { display: flex; gap: 8px; margin-top: 12px; }
-.socials a { width: 30px; height: 30px; border-radius: 50%; background: var(--green); color: var(--white); display: grid; place-items: center; font-size: 14px; font-weight: 700; text-decoration: none; }
+.socials a { width: 30px; height: 30px; border-radius: 50%; background: var(--green); color: var(--white); display: grid; place-items: center; font-size: 16px; text-decoration: none; }
 .footer-bottom { display: flex; justify-content: space-between; max-width: var(--max); border-top: 1px solid #eee; padding-top: 16px; padding-bottom: 18px; font-size: 13px; color: var(--muted); }
 
 /* ==========================================================
@@ -648,7 +664,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .article-nav-newer .chev { -webkit-mask-image: var(--chev-left); mask-image: var(--chev-left); }
 .article-nav-older .chev { -webkit-mask-image: var(--chev-right); mask-image: var(--chev-right); }
 .share-links { display: flex; gap: 8px; }
-.share-links a { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; color: var(--white); font: 700 14px var(--body); text-decoration: none; }
+.share-links a { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; color: var(--white); font-size: 17px; text-decoration: none; }
 .share-links a:hover { opacity: .85; text-decoration: none; }
 .share-fb { background: #3b5998; }
 .share-x { background: #111; }
@@ -918,7 +934,7 @@ body.lightbox-open { overflow: hidden; }
 .contact-rule { display: block; width: 34px; height: 3px; background: var(--green); margin: 16px 0 34px; }
 .contact-items { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 20px; }
 .contact-item.wide { grid-column: 1 / -1; }
-.contact-item .icon { width: 34px; height: 34px; fill: none; stroke: var(--green); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 12px; }
+.contact-item .ico { display: block; font-size: 34px; color: var(--green); margin-bottom: 12px; }
 .contact-item h3 { font-size: 17px; margin-bottom: .6em; }
 .contact-item p { font-size: 15px; color: var(--muted); line-height: 1.8; margin: 0; }
 .contact-item p a { font-size: 15px; }
