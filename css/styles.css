@@ -532,9 +532,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .site-footer { background: var(--navy); color: rgba(255, 255, 255, .72); }
 /* the logo gets its own row across the top, with a faint line under it */
 .footer-brand { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; padding-bottom: 22px; margin-bottom: -6px; border-bottom: 1px solid rgba(255, 255, 255, .12); text-decoration: none !important; }
-.footer-brand img { width: 44px; height: 44px; object-fit: contain; }
-.footer-brand img.img-missing { visibility: hidden; }
-.footer-brand span { font-family: var(--heading); font-weight: 700; text-transform: uppercase; font-size: 20px; color: var(--white); letter-spacing: .02em; }
+.footer-brand img { width: auto; height: 56px; }
 .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; max-width: var(--wrap); padding-top: 56px; padding-bottom: 44px; }
 .footer-cols h4 { font-size: 17px; margin-bottom: 14px; color: var(--white); }
 .footer-cols p, .footer-cols li { font-size: 14px; color: rgba(255, 255, 255, .72); margin: 0 0 8px; }
