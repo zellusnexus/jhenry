@@ -437,12 +437,12 @@ img.img-missing { color: transparent; font-size: 0; }
 .contact-wrap { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; }
 /* Google My Maps embed. The map is drawn at a fixed 720 x 540 and scaled to fit
    (--map-scale, set by main.js), so it frames the same on every screen. The frame
-   is bigger than what shows: the extra 60px on top hides the My Maps title bar and
-   the extra 48px on the left hides the zoom buttons in the bottom-left corner
-   (the map's centre point in index.html allows for that trim, so the service
-   area sits in the middle). It ignores the mouse so it can't be dragged or zoomed */
+   is bigger than what shows: the extra 60px on top hides the My Maps title bar, and
+   the extra ~50px on each side hides the zoom buttons (bottom left) and the
+   re-centre button (bottom right). Google's "(c) Google" credit along the bottom
+   stays visible. It ignores the mouse so it can't be dragged or zoomed */
 .service-map { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: #e8ecef; }
-.service-map iframe { position: absolute; left: calc(-48px * var(--map-scale, 1)); top: calc(-60px * var(--map-scale, 1)); width: 768px; height: 600px; border: 0; transform: scale(var(--map-scale, 1)); transform-origin: 0 0; pointer-events: none; }
+.service-map iframe { position: absolute; left: calc(-48px * var(--map-scale, 1)); top: calc(-60px * var(--map-scale, 1)); width: 818px; height: 600px; border: 0; transform: scale(var(--map-scale, 1)); transform-origin: 0 0; pointer-events: none; }
 .contact-card { position: relative; z-index: 1; background: var(--white); box-shadow: 0 6px 24px rgba(20, 20, 60, .2); padding: 34px 32px; }
 .contact-card h2 { font-size: 26px; margin-bottom: 10px; }
 .contact-intro { font-size: 14px; color: var(--muted); margin: 0 0 22px; }
