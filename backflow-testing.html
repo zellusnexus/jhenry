@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/favicon.png?v=2">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="css/styles.css?v=101">
+  <link rel="stylesheet" href="css/styles.css?v=102">
 </head>
 <body>
 
@@ -163,63 +163,59 @@
     </aside>
   </div>
 
-  <!-- Schedule form -->
-  <section class="schedule-section">
-    <div class="container">
-      <div class="schedule-box" id="schedule">
-        <h2>Schedule Your Appointment With<br>J. Henry Plumbing</h2>
-        <form class="schedule-form" action="#" method="post">
-          <div class="form-row">
-            <label>Name:
-              <input type="text" name="name" placeholder="Name" required>
-            </label>
-            <label>City:
-              <input type="text" name="city" placeholder="Your city here">
-            </label>
-          </div>
-          <div class="form-row">
-            <label>Email:
-              <input type="email" name="email" placeholder="Your email here" required>
-            </label>
-            <label>Phone Number:
-              <input type="tel" name="phone" placeholder="Your phone number here" required>
-            </label>
-          </div>
-          <fieldset class="callback">
-            <legend>Call-back Time:</legend>
-            <label><input type="checkbox" name="callback" value="asap"> ASAP</label>
-            <label><input type="checkbox" name="callback" value="morning"> Morning</label>
-            <label><input type="checkbox" name="callback" value="afternoon"> Afternoon</label>
-            <label><input type="checkbox" name="callback" value="after5"> After 5pm</label>
-          </fieldset>
-          <label class="full">Service Needed:
-            <input type="text" name="service">
-          </label>
-          <label class="full">How Can We Help You?:
-            <textarea name="message" rows="3"></textarea>
-          </label>
-          <label class="consent">
-            <input type="checkbox" name="sms_consent">
-            <span>By checking this box and signing up for texts, you agree to receive informational messages (appointment reminders, account notifications, marketing and promotional messages such as sales, coupons, seasonal deals, etc.) from J Henry Plumbing at the number provided. Msg &amp; data rates may apply. Msg frequency varies. Unsubscribe anytime by replying STOP. Reply HELP for help or email us at Service@jhenryplumbing.com. Learn more on our <a href="privacy-policy.html#terms">Terms &amp; Conditions</a> <a href="privacy-policy.html">Privacy Policy</a></span>
-          </label>
-          <button type="submit" class="btn btn-green"><em>Schedule an Appointment</em></button>
-        </form>
-      </div>
-    </div>
-  </section>
-
   <!-- What makes us different -->
   <section class="different">
     <div class="container different-inner">
       <img class="different-banner" src="https://5e9x7vx89b.ucarecd.net/e41ba7a2-89a4-4c06-be9c-96f6d477eea2/different-u3.png" alt="J. Henry Plumbing – serving North Alabama" loading="lazy">
-      <div class="different-body">
-        <h2>Here's What Makes Us<br>Different!</h2>
-        <span class="underline"></span>
-        <div class="different-grid">
-          <div class="different-item"><svg class="" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z" fill="#6cbf3c"/><path d="M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z" fill="#6cbf3c"/></svg><p>Our technicians are each background checked and drug tested. We hire and train only the best.</p></div>
-          <div class="different-item"><svg class="" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z" fill="#6cbf3c"/><path d="M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z" fill="#6cbf3c"/></svg><p>Before a technician is given our uniform, they must complete our very own rigorous training.</p></div>
-          <div class="different-item"><svg class="" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z" fill="#6cbf3c"/><path d="M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z" fill="#6cbf3c"/></svg><p>Customer satisfaction is our top priority. If you are not satisfied, we will do the job again to your satisfaction FREE.</p></div>
-          <div class="different-item"><svg class="" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z" fill="#6cbf3c"/><path d="M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z" fill="#6cbf3c"/></svg><p>We'll always provide you with the price before we begin. No surprises or hidden fees!</p></div>
+      <div class="different-body different-with-form">
+        <div class="different-text">
+          <h2>Here's What Makes Us<br>Different!</h2>
+          <span class="underline"></span>
+          <div class="different-grid">
+            <div class="different-item"><svg class="" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z" fill="#6cbf3c"/><path d="M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z" fill="#6cbf3c"/></svg><p>Our technicians are each background checked and drug tested. We hire and train only the best.</p></div>
+            <div class="different-item"><svg class="" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z" fill="#6cbf3c"/><path d="M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z" fill="#6cbf3c"/></svg><p>Before a technician is given our uniform, they must complete our very own rigorous training.</p></div>
+            <div class="different-item"><svg class="" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z" fill="#6cbf3c"/><path d="M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z" fill="#6cbf3c"/></svg><p>Customer satisfaction is our top priority. If you are not satisfied, we will do the job again to your satisfaction FREE.</p></div>
+            <div class="different-item"><svg class="" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z" fill="#6cbf3c"/><path d="M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z" fill="#6cbf3c"/></svg><p>We'll always provide you with the price before we begin. No surprises or hidden fees!</p></div>
+          </div>
+        </div>
+        <div class="schedule-box" id="schedule">
+          <h2>Schedule Your Appointment With<br>J. Henry Plumbing</h2>
+          <form class="schedule-form" action="#" method="post">
+            <div class="form-row">
+              <label>Name:
+                <input type="text" name="name" placeholder="Name" required>
+              </label>
+              <label>City:
+                <input type="text" name="city" placeholder="Your city here">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>Email:
+                <input type="email" name="email" placeholder="Your email here" required>
+              </label>
+              <label>Phone Number:
+                <input type="tel" name="phone" placeholder="Your phone number here" required>
+              </label>
+            </div>
+            <fieldset class="callback">
+              <legend>Call-back Time:</legend>
+              <label><input type="checkbox" name="callback" value="asap"> ASAP</label>
+              <label><input type="checkbox" name="callback" value="morning"> Morning</label>
+              <label><input type="checkbox" name="callback" value="afternoon"> Afternoon</label>
+              <label><input type="checkbox" name="callback" value="after5"> After 5pm</label>
+            </fieldset>
+            <label class="full">Service Needed:
+              <input type="text" name="service">
+            </label>
+            <label class="full">How Can We Help You?:
+              <textarea name="message" rows="3"></textarea>
+            </label>
+            <label class="consent">
+              <input type="checkbox" name="sms_consent">
+              <span>By checking this box and signing up for texts, you agree to receive informational messages (appointment reminders, account notifications, marketing and promotional messages such as sales, coupons, seasonal deals, etc.) from J Henry Plumbing at the number provided. Msg &amp; data rates may apply. Msg frequency varies. Unsubscribe anytime by replying STOP. Reply HELP for help or email us at Service@jhenryplumbing.com. Learn more on our <a href="privacy-policy.html#terms">Terms &amp; Conditions</a> <a href="privacy-policy.html">Privacy Policy</a></span>
+            </label>
+            <button type="submit" class="btn btn-green"><em>Schedule an Appointment</em></button>
+          </form>
         </div>
       </div>
     </div>
