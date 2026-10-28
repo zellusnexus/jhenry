@@ -132,6 +132,7 @@ img.img-missing { color: transparent; font-size: 0; }
   cursor: pointer;
   transition: background-color .2s, color .2s, transform .2s;
   text-decoration: none !important;
+  white-space: nowrap;
 }
 .btn em { font-style: italic; }
 .btn:hover { transform: translateY(-1px); }
@@ -218,7 +219,6 @@ img.img-missing { color: transparent; font-size: 0; }
 .has-dropdown:focus-within .dropdown { opacity: 1; visibility: visible; transform: none; }
 
 .header-cta { display: flex; align-items: center; }
-.header-cta .btn-sm { padding: 10px 44px; font-size: 16px; }
 
 .nav-toggle { display: none; background: none; border: 0; padding: 8px; cursor: pointer; }
 .nav-toggle span { display: block; width: 26px; height: 3px; background: var(--blue); margin: 5px 0; border-radius: 2px; }
@@ -264,7 +264,7 @@ img.img-missing { color: transparent; font-size: 0; }
   margin: 0 0 50px;
 }
 .hero-buttons { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
-.hero-buttons .btn { font-size: 18px; padding: 11px 40px; }
+.hero-buttons .btn { font-size: 15px; padding: 12px 28px; }    /* same size as every other Book Now / phone button */
 
 .hero-van { position: relative; z-index: 2; margin-top: -160px; display: flex; justify-content: center; }
 .hero-van img { width: min(720px, 85vw); height: auto; }
@@ -514,7 +514,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .cta-bar h2 { color: var(--white); font-size: clamp(22px, 2.4vw, 32px); margin: 0; }
 .cta-bar p { color: var(--white); font-family: var(--heading); font-weight: 600; text-transform: uppercase; font-size: 14px; margin: 4px 0 0; }
 .cta-buttons { display: flex; align-items: center; gap: 14px; }
-.cta-buttons .btn { font-size: 16px; padding: 14px 36px; }
+.cta-buttons .btn { font-size: 15px; padding: 12px 28px; }
 .cta-buttons .btn-green { background: var(--white); color: var(--green); }    /* the phone button, white on the green bar */
 .cta-buttons .btn-green:hover { background: var(--light); }
 
@@ -1007,7 +1007,6 @@ body.lightbox-open { overflow: hidden; }
   .logo-img.img-missing { width: 175px; }
   .logo-name { font-size: 26px; }
   .logo-sub { font-size: 12px; }
-  .header-cta .btn-sm { padding: 11px 30px; font-size: 15px; }
   .service-tiles, .news-carousel { --per: 3; }
 }
 
@@ -1070,7 +1069,6 @@ body.lightbox-open { overflow: hidden; }
   .why-join { gap: 16px; }
   .why-join-mark { width: 96px; }
   .header-inner { gap: 12px; min-height: 82px; }
-  .header-cta .btn-sm { padding: 9px 18px; font-size: 13px; }
   .logo-sub { font-size: 10px; }
   .logo-name { font-size: 20px; }
   .logo-mark { width: 38px; height: 38px; }
@@ -1080,7 +1078,6 @@ body.lightbox-open { overflow: hidden; }
   .hero { --van-overlap: 110px; --logo-size: 540px; min-height: 560px; }
   .hero-content { padding-top: 120px; padding-bottom: 170px; }
   .hero-buttons { gap: 14px; }
-  .hero-buttons .btn { font-size: 16px; padding: 12px 36px; }
   .hero-van { margin-top: -110px; }
   /* phones: one card per row with the icon beside the title */
   .promise-cards { grid-template-columns: 1fr; gap: 12px; }
@@ -1115,4 +1112,16 @@ body.lightbox-open { overflow: hidden; }
   .different-grid { grid-template-columns: 1fr; }
   .contact-layout .schedule-box { padding: 30px 20px 32px; }
   .post { grid-template-columns: 1fr; gap: 14px; margin-bottom: 34px; }
+}
+
+/* very narrow phones: shrink the header logo so the full-size Book Now button and
+   the menu button still fit beside it */
+@media (max-width: 380px) {
+  .header-inner { gap: 8px; }
+  .site-header .logo-img { height: 32px; }
+  .site-header .logo-img.img-missing { width: 112px; }
+}
+@media (max-width: 340px) {
+  .site-header .logo-img { height: 26px; }
+  .site-header .logo-img.img-missing { width: 90px; }
 }
