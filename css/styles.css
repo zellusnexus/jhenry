@@ -385,13 +385,13 @@ img.img-missing { color: transparent; font-size: 0; }
 
 
 /* ---------- Split ---------- */
-.split { display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; }
+.split { display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; margin-bottom: 60px; }    /* inside the page margins (.container) */
 .split-image { background-size: cover; background-position: center; min-height: 320px; }
 /* photos that fade from one to the next (home "Backed Up" section) */
 .split-slides { position: relative; overflow: hidden; }
 .split-slides img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s ease; }
 .split-slides img.is-active { opacity: 1; }
-.split-content { background: var(--green); color: var(--white); padding: 60px var(--gutter); }
+.split-content { background: var(--green); color: var(--white); padding: 56px 48px; }
 .split-content > * { max-width: 620px; }
 .split-content h2 { color: var(--white); font-size: clamp(26px, 2.6vw, 38px); }
 .split-eyebrow { font-family: var(--heading); text-transform: uppercase; font-weight: 600; font-size: 15px; }
@@ -1013,7 +1013,7 @@ body.lightbox-open { overflow: hidden; }
   .schedule-box { padding: 32px 20px; }
   .promise-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .promise-card h3 { min-height: 0; }
-  .split-content { padding: 40px var(--gutter); }
+  .split-content { padding: 40px 32px; }
   .cta-inner { flex-direction: column; gap: 14px; text-align: center; }
   .cta-buttons { align-items: center; }
   .footer-cols { grid-template-columns: repeat(2, 1fr); }
@@ -1037,6 +1037,7 @@ body.lightbox-open { overflow: hidden; }
 }
 
 @media (max-width: 600px) {
+  .split-content { padding: 32px 22px; }
   .contact-card { padding: 26px 22px; margin: -40px 12px 0; }
   .service-map { aspect-ratio: 1 / 1; }
   .lightbox-btn { width: 42px; height: 42px; }
