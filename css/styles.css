@@ -507,12 +507,16 @@ img.img-missing { color: transparent; font-size: 0; }
 .faq details p { margin: 0; padding: 0 16px 16px; font-size: 14px; color: var(--muted); }
 
 /* ---------- CTA bar ---------- */
-.cta-bar { background: var(--black); padding: 30px 0; }
-.cta-inner { display: flex; justify-content: center; align-items: center; gap: 120px; max-width: 1000px; }
+/* green bar: on wide screens the heading sits at the left edge of the content and the
+   two buttons sit side by side at the right; smaller screens stack it, centred */
+.cta-bar { background: var(--green); padding: 34px 0; }
+.cta-inner { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
 .cta-bar h2 { color: var(--white); font-size: clamp(22px, 2.4vw, 32px); margin: 0; }
 .cta-bar p { color: var(--white); font-family: var(--heading); font-weight: 600; text-transform: uppercase; font-size: 14px; margin: 4px 0 0; }
-.cta-buttons { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.cta-buttons { display: flex; align-items: center; gap: 14px; }
 .cta-buttons .btn { font-size: 16px; padding: 14px 36px; }
+.cta-buttons .btn-green { background: var(--white); color: var(--green); }    /* the phone button, white on the green bar */
+.cta-buttons .btn-green:hover { background: var(--light); }
 
 /* ---------- Share ---------- */
 /* "Share Your Experience": a plain white section with a heading, one line and the
@@ -1031,7 +1035,7 @@ body.lightbox-open { overflow: hidden; }
   .promise-card h3 { min-height: 0; }
   .split-content { padding: 40px 32px; }
   .cta-inner { flex-direction: column; gap: 14px; text-align: center; }
-  .cta-buttons { align-items: center; }
+  .cta-buttons { flex-direction: column; align-items: center; gap: 10px; }
   .footer-cols { grid-template-columns: repeat(2, 1fr); }
   .footer-bottom { flex-direction: column; gap: 4px; text-align: center; }
 
