@@ -285,6 +285,55 @@ if (serviceMap && contactCard) {
   placeMap();
 }
 
+// Google's map embed scrolls the page down to itself as it loads. It loads hidden
+// in a fixed position (which the page can't scroll to), then drops into place;
+// for a few seconds after that, any scroll the visitor didn't make is undone by
+// putting the map back where it was on screen
+let noteOwnScroll = () => {};    // the page's own scrolls (hash alignment below) call this
+const mapFrame = document.querySelector('.service-map iframe');
+if (mapFrame) {
+  const root = document.documentElement;
+  const mapBox = mapFrame.parentElement;
+  const mapTop = () => mapBox.getBoundingClientRect().top;
+  let lastInput = -1e4;
+  let keptTop = 0;
+  let guarding = false;
+  const userActive = () => performance.now() - lastInput < 300;
+  const touched = () => { lastInput = performance.now(); };
+  ['wheel', 'touchstart', 'touchmove', 'keydown', 'pointerdown'].forEach((type) => window.addEventListener(type, touched, { capture: true, passive: true }));
+  noteOwnScroll = () => { keptTop = mapTop(); };
+
+  window.addEventListener('scroll', () => {
+    if (!guarding) return;
+    const top = mapTop();
+    // the visitor's scrolling (momentum carries on after the finger lifts), or the
+    // browser holding the view still while images above load
+    if (userActive() || Math.abs(top - keptTop) < 2) {
+      if (userActive()) touched();
+      keptTop = top;
+      return;
+    }
+    root.style.scrollBehavior = 'auto';
+    window.scrollBy(0, top - keptTop);
+    root.style.scrollBehavior = '';
+    keptTop = mapTop();
+  }, { passive: true });
+
+  let shown = false;
+  const show = () => {
+    if (shown) return;
+    shown = true;
+    mapFrame.classList.remove('map-loading');
+    keptTop = mapTop();
+    guarding = true;
+    setTimeout(() => { guarding = false; }, 6000);
+  };
+  // the page's load event waits for the map too (and may already have fired)
+  if (document.readyState === 'complete') setTimeout(show, 2500);
+  else window.addEventListener('load', () => setTimeout(show, 2500), { once: true });
+  setTimeout(show, 10000);    // in case the map is slow or never loads
+}
+
 // Card carousels (home services and Plumbing News): step along one card at a
 // time with a 5 second pause between steps, looping forever by moving the
 // card that slid off to the other end. Arrows (shown on hover) step them by
@@ -398,6 +447,7 @@ if (hashTarget && 'ResizeObserver' in window) {
     root.style.scrollBehavior = 'auto';    // jump straight there rather than glide
     hashTarget.scrollIntoView();
     root.style.scrollBehavior = '';
+    noteOwnScroll();
   };
   const watcher = new ResizeObserver(align);
   const stop = () => watcher.disconnect();
