@@ -388,5 +388,23 @@ if (introForm) {
   centreForm();
 }
 
+// Arriving on a link to a section (e.g. index.html#services): images above it can
+// still change size as they load and push it down, so keep it lined up under the
+// header while the page settles (up to 3 seconds, or until the visitor scrolls)
+const hashTarget = location.hash && document.getElementById(location.hash.slice(1));
+if (hashTarget && 'ResizeObserver' in window) {
+  const root = document.documentElement;
+  const align = () => {
+    root.style.scrollBehavior = 'auto';    // jump straight there rather than glide
+    hashTarget.scrollIntoView();
+    root.style.scrollBehavior = '';
+  };
+  const watcher = new ResizeObserver(align);
+  const stop = () => watcher.disconnect();
+  watcher.observe(document.body);
+  ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach((type) => window.addEventListener(type, stop, { once: true, passive: true }));
+  setTimeout(stop, 3000);
+}
+
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
