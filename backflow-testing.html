@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/favicon.png?v=2">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="css/styles.css?v=100">
+  <link rel="stylesheet" href="css/styles.css?v=101">
 </head>
 <body>
 
@@ -85,11 +85,15 @@
     <div class="container page-hero-content">
       <h1>Backflow Testing</h1>
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>:</span><a href="index.html#services">Services</a><span>:</span><span class="current">Backflow Testing</span></nav>
+      <div class="page-hero-btns">
+        <a href="#schedule" class="btn btn-green">Book Now!</a>
+        <a href="tel:2565855483" class="btn btn-outline-green">Call (256) 585-5483</a>
+      </div>
     </div>
   </section>
 
   <!-- Content + sidebar -->
-  <div class="container area-layout">
+  <div class="container service-layout">
     <article class="area-main service-main">
       <h2>Protect Your Water &amp; Your Home With J Henry Plumbing</h2>
       <p class="service-tagline">What is backflow prevention?</p>
@@ -106,10 +110,6 @@
       <p>We don't just meet the rules&mdash;we exceed them. Our team ensures your system complies with all plumbing regulations and provides the documentation you need for peace of mind.</p>
       <h3 class="service-sub">Education &amp; Consulting</h3>
       <p>Knowledge is power! We'll teach you the ins and outs of backflow prevention, help you spot potential risks, and guide you toward the best solutions for your home.</p>
-      <div class="contact-strip">
-        <h3>Contact us by calling our office at <a href="tel:2565855483">(256) 585-5483</a>, or visit our <a href="contact-us.html">contact page</a> to request an inspection.</h3>
-        <a href="index.html#schedule" class="btn btn-blue btn-sm">Book Now!</a>
-      </div>
       <h2>Why Backflow Prevention Is A Big Deal</h2>
       <p>Backflow prevention isn't just about plumbing&mdash;it's about protecting your health, your home, and the environment. Without it, harmful contaminants could sneak into your drinking water, leading to serious health risks and costly damage.</p>
       <p><strong>Here's Why It Matters:</strong></p>
@@ -134,16 +134,20 @@
         <li>Annual testing to keep your system compliant and effective.</li>
       </ul>
       <p>We tailor our services to your property's unique needs, for homes and businesses. From irrigation systems to water heaters, we've got you covered &ndash; call us today at <a href="tel:2565855483">(256) 585-5483</a>.</p>
-      <hr class="service-rule">
-      <div class="unsure-box">
+      <div class="service-cta">
         <h3>Got a plumbing problem? Contact us by calling our office at <a href="tel:2565855483">(256) 585-5483</a>, or visit our <a href="contact-us.html">contact page</a> to request an inspection.</h3>
+        <a href="#schedule" class="btn btn-blue">Book Now!</a>
       </div>
-      <a href="index.html#schedule" class="btn btn-blue btn-sm service-book">Book Now!</a>
     </article>
 
-    <aside class="area-sidebar">
-    <aside class="area-sidebar">
-      <div class="side-services">
+    <aside class="service-side">
+      <div class="side-call">
+        <h2>Need A Plumber?</h2>
+        <p>We are open 24/7 for plumbing services.</p>
+        <a href="tel:2565855483" class="side-call-phone">(256) 585-5483</a>
+        <a href="#schedule" class="btn btn-green">Book Now!</a>
+      </div>
+      <nav class="side-list" aria-label="Our services">
         <h2>Our Services</h2>
         <ul>
           <li><a href="plumbing-services.html">Plumbing Services</a></li>
@@ -155,51 +159,54 @@
           <li><a href="backflow-testing.html" class="current">Backflow Testing</a></li>
           <li><a href="memberships.html">Memberships</a></li>
         </ul>
-      </div>
+      </nav>
+    </aside>
+  </div>
 
-      <div class="side-interested">
-        <a href="index.html" class="logo" aria-label="J. Henry Plumbing home">
-          <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z" fill="#2b2ee0"/><path d="M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z" fill="#2b2ee0"/></svg>
-          <span class="logo-text">
-            <span class="logo-name">J. HENRY</span>
-            <span class="logo-sub">PLUMBING</span>
-          </span>
-        </a>
-        <h2>Interested in our service?</h2>
-        <p>Get in touch today to discuss your next project and we will happy to answer any questions and provide you with a no-obligation FREE Estimate.</p>
-        <a href="contact-us.html" class="btn btn-green btn-sm"><em>Contact Us</em></a>
-      </div>
-
-      <div class="side-schedule" id="schedule">
-        <h2>Schedule Your<br>Appointment</h2>
+  <!-- Schedule form -->
+  <section class="schedule-section">
+    <div class="container">
+      <div class="schedule-box" id="schedule">
+        <h2>Schedule Your Appointment With<br>J. Henry Plumbing</h2>
         <form class="schedule-form" action="#" method="post">
-          <label>Name:
-            <input type="text" name="name" placeholder="Name" required>
-          </label>
-          <label>City:
-            <input type="text" name="city" placeholder="Your city here">
-          </label>
-          <label>Email:
-            <input type="email" name="email" required>
-          </label>
-          <label>Phone Number:
-            <input type="tel" name="phone" placeholder="Your phone number here" required>
-          </label>
-          <label>Service Needed:
+          <div class="form-row">
+            <label>Name:
+              <input type="text" name="name" placeholder="Name" required>
+            </label>
+            <label>City:
+              <input type="text" name="city" placeholder="Your city here">
+            </label>
+          </div>
+          <div class="form-row">
+            <label>Email:
+              <input type="email" name="email" placeholder="Your email here" required>
+            </label>
+            <label>Phone Number:
+              <input type="tel" name="phone" placeholder="Your phone number here" required>
+            </label>
+          </div>
+          <fieldset class="callback">
+            <legend>Call-back Time:</legend>
+            <label><input type="checkbox" name="callback" value="asap"> ASAP</label>
+            <label><input type="checkbox" name="callback" value="morning"> Morning</label>
+            <label><input type="checkbox" name="callback" value="afternoon"> Afternoon</label>
+            <label><input type="checkbox" name="callback" value="after5"> After 5pm</label>
+          </fieldset>
+          <label class="full">Service Needed:
             <input type="text" name="service">
           </label>
-          <label>How Can We Help You?:
+          <label class="full">How Can We Help You?:
             <textarea name="message" rows="3"></textarea>
           </label>
           <label class="consent">
             <input type="checkbox" name="sms_consent">
             <span>By checking this box and signing up for texts, you agree to receive informational messages (appointment reminders, account notifications, marketing and promotional messages such as sales, coupons, seasonal deals, etc.) from J Henry Plumbing at the number provided. Msg &amp; data rates may apply. Msg frequency varies. Unsubscribe anytime by replying STOP. Reply HELP for help or email us at Service@jhenryplumbing.com. Learn more on our <a href="privacy-policy.html#terms">Terms &amp; Conditions</a> <a href="privacy-policy.html">Privacy Policy</a></span>
           </label>
-          <button type="submit" class="btn btn-green btn-sm"><em>Submit</em></button>
+          <button type="submit" class="btn btn-green"><em>Schedule an Appointment</em></button>
         </form>
       </div>
-    </aside>
-  </div>
+    </div>
+  </section>
 
   <!-- What makes us different -->
   <section class="different">

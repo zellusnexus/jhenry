@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/favicon.png?v=2">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="css/styles.css?v=100">
+  <link rel="stylesheet" href="css/styles.css?v=101">
 </head>
 <body>
 
@@ -85,11 +85,15 @@
     <div class="container page-hero-content">
       <h1>Pump Installation &amp; Service</h1>
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>:</span><a href="index.html#services">Services</a><span>:</span><span class="current">Pump Installation Services</span></nav>
+      <div class="page-hero-btns">
+        <a href="#schedule" class="btn btn-green">Book Now!</a>
+        <a href="tel:2565855483" class="btn btn-outline-green">Call (256) 585-5483</a>
+      </div>
     </div>
   </section>
 
   <!-- Content + sidebar -->
-  <div class="container area-layout">
+  <div class="container service-layout">
     <article class="area-main service-main">
       <h2>Pump Installation &amp; Service</h2>
       <p class="service-tagline">We have the experience needed to get your pumps up and running like a dream.</p>
@@ -104,15 +108,20 @@
       <img class="area-photo" src="https://5e9x7vx89b.ucarecd.net/e3e4b5be-62b5-404d-9f63-c911cd01d20f/installation-pis1.jpg" alt="Pump installation by J. Henry Plumbing in Huntsville, AL" loading="lazy">
       <h2>Sump Pump Repair &amp; Installation</h2>
       <p>We're here to assist with all of your sump pump needs. At J. Henry Plumbing, we pride ourselves on delivering a full-service plumbing experience that will meet or exceed our customer's expectations!</p>
-      <hr class="service-rule">
-      <div class="unsure-box">
+      <div class="service-cta">
         <h3>Got a plumbing problem? Contact us by calling our office at <a href="tel:2565855483">(256) 585-5483</a>, or visit our <a href="contact-us.html">contact page</a> to request an inspection.</h3>
+        <a href="#schedule" class="btn btn-blue">Book Now!</a>
       </div>
-      <a href="index.html#schedule" class="btn btn-blue btn-sm service-book">Book Now!</a>
     </article>
 
-    <aside class="area-sidebar">
-      <div class="side-services">
+    <aside class="service-side">
+      <div class="side-call">
+        <h2>Need A Plumber?</h2>
+        <p>We are open 24/7 for plumbing services.</p>
+        <a href="tel:2565855483" class="side-call-phone">(256) 585-5483</a>
+        <a href="#schedule" class="btn btn-green">Book Now!</a>
+      </div>
+      <nav class="side-list" aria-label="Our services">
         <h2>Our Services</h2>
         <ul>
           <li><a href="plumbing-services.html">Plumbing Services</a></li>
@@ -124,39 +133,54 @@
           <li><a href="backflow-testing.html">Backflow Testing</a></li>
           <li><a href="memberships.html">Memberships</a></li>
         </ul>
-      </div>
+      </nav>
+    </aside>
+  </div>
 
-
-      <div class="side-schedule" id="schedule">
-        <h2>Schedule Your<br>Appointment</h2>
+  <!-- Schedule form -->
+  <section class="schedule-section">
+    <div class="container">
+      <div class="schedule-box" id="schedule">
+        <h2>Schedule Your Appointment With<br>J. Henry Plumbing</h2>
         <form class="schedule-form" action="#" method="post">
-          <label>Name:
-            <input type="text" name="name" placeholder="Name" required>
-          </label>
-          <label>City:
-            <input type="text" name="city" placeholder="Your city here">
-          </label>
-          <label>Email:
-            <input type="email" name="email" required>
-          </label>
-          <label>Phone Number:
-            <input type="tel" name="phone" placeholder="Your phone number here" required>
-          </label>
-          <label>Service Needed:
+          <div class="form-row">
+            <label>Name:
+              <input type="text" name="name" placeholder="Name" required>
+            </label>
+            <label>City:
+              <input type="text" name="city" placeholder="Your city here">
+            </label>
+          </div>
+          <div class="form-row">
+            <label>Email:
+              <input type="email" name="email" placeholder="Your email here" required>
+            </label>
+            <label>Phone Number:
+              <input type="tel" name="phone" placeholder="Your phone number here" required>
+            </label>
+          </div>
+          <fieldset class="callback">
+            <legend>Call-back Time:</legend>
+            <label><input type="checkbox" name="callback" value="asap"> ASAP</label>
+            <label><input type="checkbox" name="callback" value="morning"> Morning</label>
+            <label><input type="checkbox" name="callback" value="afternoon"> Afternoon</label>
+            <label><input type="checkbox" name="callback" value="after5"> After 5pm</label>
+          </fieldset>
+          <label class="full">Service Needed:
             <input type="text" name="service">
           </label>
-          <label>How Can We Help You?:
+          <label class="full">How Can We Help You?:
             <textarea name="message" rows="3"></textarea>
           </label>
           <label class="consent">
             <input type="checkbox" name="sms_consent">
             <span>By checking this box and signing up for texts, you agree to receive informational messages (appointment reminders, account notifications, marketing and promotional messages such as sales, coupons, seasonal deals, etc.) from J Henry Plumbing at the number provided. Msg &amp; data rates may apply. Msg frequency varies. Unsubscribe anytime by replying STOP. Reply HELP for help or email us at Service@jhenryplumbing.com. Learn more on our <a href="privacy-policy.html#terms">Terms &amp; Conditions</a> <a href="privacy-policy.html">Privacy Policy</a></span>
           </label>
-          <button type="submit" class="btn btn-green btn-sm"><em>Submit</em></button>
+          <button type="submit" class="btn btn-green"><em>Schedule an Appointment</em></button>
         </form>
       </div>
-    </aside>
-  </div>
+    </div>
+  </section>
 
   <!-- What makes us different -->
   <section class="different">
