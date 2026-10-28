@@ -526,7 +526,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .share p { color: var(--muted); font-size: 15px; margin: 0; }
 .badges { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 48px; margin-top: 28px; }
 .badge { display: block; text-decoration: none !important; transition: opacity .2s; }
-.badge:hover { opacity: .85; }
+a.badge:hover { opacity: .85; }
 .badge-img img { height: 60px; width: auto; }
 .badge-seal img { height: 74px; }    /* the round award seal reads small at the same height */
 .badge-img img.img-missing { width: 170px; }
