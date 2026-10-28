@@ -261,12 +261,28 @@ faqItems.forEach((item) => {
   });
 });
 
-// Home service-area map: scale the fixed-size map to fit its box (see styles.css)
+// Home service-area map: scale the wide map to the box height and slide it so its
+// centre (the service area) sits in the middle of the part the card doesn't cover
 const serviceMap = document.querySelector('.service-map');
-if (serviceMap) {
-  const scaleMap = () => serviceMap.style.setProperty('--map-scale', serviceMap.clientWidth / 720);
-  window.addEventListener('resize', scaleMap);
-  scaleMap();
+const contactCard = document.querySelector('.map-contact .contact-card');
+if (serviceMap && contactCard) {
+  const placeMap = () => {
+    const box = serviceMap.getBoundingClientRect();
+    const card = contactCard.getBoundingClientRect();
+    // a little bigger than the box so it can slide up or down and still fill it
+    const scale = (box.height / 540) * 1.1;
+    const beside = card.top < box.bottom - 60 && card.left > box.left + box.width / 3;
+    // free area: left of the card on desktop, above the card's overlap when stacked
+    const cx = beside ? (card.left - box.left) / 2 : box.width / 2;
+    const cy = beside ? box.height / 2 : (Math.min(card.top, box.bottom) - box.top) / 2;
+    serviceMap.style.setProperty('--map-scale', scale);
+    serviceMap.style.setProperty('--map-x', `${cx - 1200 * scale}px`);
+    // keep the title bar (top 60px) above the box and the map's bottom below it
+    const top = Math.min(-60 * scale, Math.max(box.height - 600 * scale, cy - 330 * scale));
+    serviceMap.style.setProperty('--map-y', `${top}px`);
+  };
+  window.addEventListener('resize', placeMap);
+  placeMap();
 }
 
 // Card carousels (home services and Plumbing News): step along one card at a
