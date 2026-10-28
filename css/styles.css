@@ -515,16 +515,15 @@ img.img-missing { color: transparent; font-size: 0; }
 .cta-buttons .btn { font-size: 16px; padding: 14px 36px; }
 
 /* ---------- Share ---------- */
-.share { background: var(--blue); text-align: center; padding: 26px var(--gutter); }
-.share h2 { color: var(--white); text-transform: none; font-size: clamp(24px, 2.4vw, 32px); margin: 0 0 6px; }
-.share p { color: var(--white); font-family: var(--heading); font-size: 15px; font-weight: 600; margin: 0; }
-
-/* ---------- Badges ---------- */
-.badges { display: flex; justify-content: center; align-items: center; gap: 50px; padding-top: 36px; padding-bottom: 44px; flex-wrap: wrap; }
-.badge { display: inline-flex; align-items: center; gap: 10px; text-decoration: none !important; font-family: var(--body); }
-.badge small { display: block; font-size: 12px; line-height: 1.2; }
-.badge-img img { height: 80px; width: auto; }
-.badge-img img.img-missing { width: 170px; }
+/* "Share Your Experience": heading, line and review-site badges as one section */
+.share { background: var(--light); text-align: center; padding: 50px 0 56px; }
+.share h2 { font-size: clamp(26px, 2.6vw, 36px); margin: 0 0 6px; }
+.share p { color: var(--muted); font-size: 15px; margin: 0; }
+.badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin-top: 30px; }
+.badge { display: grid; place-items: center; width: 220px; height: 120px; padding: 16px; background: var(--white); box-shadow: 0 1px 6px rgba(0, 0, 0, .14); text-decoration: none !important; transition: box-shadow .2s; }
+.badge:hover { box-shadow: 0 4px 14px rgba(0, 0, 0, .2); }
+.badge-img img { max-height: 80px; max-width: 100%; width: auto; height: auto; }
+.badge-img img.img-missing { width: 170px; height: 80px; }
 
 /* ---------- Footer ---------- */
 .site-footer { padding-bottom: 0; }
@@ -1080,7 +1079,9 @@ body.lightbox-open { overflow: hidden; }
   .form-row { grid-template-columns: 1fr; }
   .service-tiles, .news-carousel { --per: 2; }
   .footer-cols { grid-template-columns: 1fr; }
-  .badge-img img { height: 64px; }
+  .badges { gap: 12px; }
+  .badge { width: calc(50% - 6px); height: 100px; }
+  .badge-img img { max-height: 64px; }
   .carousel-btn { width: 30px; height: 30px; }
   .carousel-btn::before { width: 16px; height: 16px; }
 
