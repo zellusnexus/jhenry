@@ -261,6 +261,14 @@ faqItems.forEach((item) => {
   });
 });
 
+// Home service-area map: scale the fixed-size map to fit its box (see styles.css)
+const serviceMap = document.querySelector('.service-map');
+if (serviceMap) {
+  const scaleMap = () => serviceMap.style.setProperty('--map-scale', serviceMap.clientWidth / 720);
+  window.addEventListener('resize', scaleMap);
+  scaleMap();
+}
+
 // Card carousels (home services and Plumbing News): step along one card at a
 // time with a 5 second pause between steps, looping forever by moving the
 // card that slid off to the other end. Arrows (shown on hover) step them by
