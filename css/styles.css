@@ -944,17 +944,49 @@ body.lightbox-open { overflow: hidden; }
 .different-item p { margin: 0; }
 
 /* ---------- Service pages ---------- */
-.service-main .service-tagline { font: 500 13px/1.5 var(--heading); text-transform: uppercase; color: var(--blue); margin: -.4em 0 1.2em; }
-.service-main .area-list:not(.cols) { margin-bottom: 0; }
-.service-main .contact-strip .btn { margin-top: 14px; }
-.service-rule { border: 0; border-top: 2px solid #a7dc8a; margin: 34px 0 0; }
-.service-book { margin: 26px 0 0 12px; }
-.side-services a.current { background: var(--green); margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
-.side-services a.current:hover { color: var(--white); }
-.footer-cols a.current { color: var(--green); }
+.page-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.service-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; align-items: start; padding-top: 64px; padding-bottom: 64px; }
+.service-main .service-tagline { font-size: 18px; font-weight: 500; line-height: 1.6; color: var(--black); margin: -.2em 0 1em; }
+.service-main .area-photo { aspect-ratio: 16 / 9; }
 .service-main .area-photo.tall { aspect-ratio: 16 / 10; }
 .service-sub { font-size: 16px; margin: 1.4em 0 .3em; }
 .service-sub + p { margin-bottom: .6em; }
+
+/* lists read as a checklist: ticked cards on a light panel */
+.service-main .area-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; background: #f5f6f8; padding: 20px; margin: 1.2em 0 1.6em; font-size: 15px; line-height: 1.5; color: var(--black); }
+.service-main .area-list li { padding: 14px 16px 14px 52px; margin: 0; background: var(--white); box-shadow: 0 1px 6px rgba(0, 0, 0, .12); font-weight: 500; }
+.service-main .area-list li::before { content: ''; left: 16px; top: 50%; width: 22px; height: 22px; margin-top: -11px; border-radius: 50%; background: var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; }
+
+/* one contact strip at the end of the page text */
+.service-cta { display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 2px solid var(--green); border-bottom: 2px solid var(--green); padding: 22px 0; margin-top: 40px; }
+.service-cta h3 { font-size: 19px; line-height: 1.4; margin: 0; }
+.service-cta a:not(.btn) { color: var(--green); }
+
+/* sidebar: call box and services menu, held in view while the text scrolls */
+.service-side { position: sticky; top: 120px; display: grid; gap: 20px; }
+.side-call { background: var(--navy); color: var(--white); padding: 28px; text-align: center; }
+.side-call h2 { color: var(--white); font-size: 24px; margin-bottom: 6px; }
+.side-call p { color: rgba(255, 255, 255, .8); font-size: 14px; margin: 0 0 14px; }
+.side-call-phone { display: block; font-family: var(--heading); font-size: 30px; font-weight: 700; color: var(--green); margin-bottom: 16px; }
+.side-call-phone:hover { color: var(--white); text-decoration: none; }
+.side-call .btn { width: 100%; }
+.side-list { border: 1px solid #e3e3e3; background: var(--white); }
+.side-list h2 { font-size: 18px; margin: 0; padding: 16px 20px; border-bottom: 1px solid #e3e3e3; }
+.side-list ul { list-style: none; margin: 0; padding: 6px 0; }
+.side-list a { display: block; padding: 9px 20px 9px 17px; border-left: 3px solid transparent; color: var(--text); font-size: 15px; }
+.side-list a:hover { color: var(--blue); text-decoration: none; }
+.side-list a.current { color: var(--blue); font-weight: 700; border-left-color: var(--green); background: #f5f6f8; }
+.side-services a.current { background: var(--green); margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
+.side-services a.current:hover { color: var(--white); }
+.footer-cols a.current { color: var(--green); }
+
+@media (max-width: 900px) {
+  .service-layout { grid-template-columns: 1fr; gap: 32px; padding-top: 44px; padding-bottom: 44px; }
+  .service-side { position: static; }
+  .side-list { display: none; }    /* the services are in the main menu on phones */
+  .service-main .area-list { grid-template-columns: 1fr; padding: 14px; }
+  .service-cta { flex-direction: column; text-align: center; }
+}
 
 /* ---------- Contact + News pages ---------- */
 .page-hero .btn { margin-top: 2px; }

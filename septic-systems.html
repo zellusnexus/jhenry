@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/favicon.png?v=2">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="css/styles.css?v=100">
+  <link rel="stylesheet" href="css/styles.css?v=101">
 </head>
 <body>
 
@@ -85,11 +85,15 @@
     <div class="container page-hero-content">
       <h1>Septic Systems</h1>
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>:</span><a href="index.html#services">Services</a><span>:</span><span class="current">Septic Systems</span></nav>
+      <div class="page-hero-btns">
+        <a href="#schedule" class="btn btn-green">Book Now!</a>
+        <a href="tel:2565855483" class="btn btn-outline-green">Call (256) 585-5483</a>
+      </div>
     </div>
   </section>
 
   <!-- Content + sidebar -->
-  <div class="container area-layout">
+  <div class="container service-layout">
     <article class="area-main service-main">
       <h2>Septic Systems In Huntsville, AL</h2>
       <p class="service-tagline">When it comes to septic systems, we have you covered.</p>
@@ -114,21 +118,24 @@
       <img class="area-photo" src="https://5e9x7vx89b.ucarecd.net/aba92a46-53cb-4fbe-9fea-a159bcc5273a/septic-ss1.jpg" alt="Septic system services by J. Henry Plumbing in North Alabama" loading="lazy">
       <h2>Septic Installations</h2>
       <p>J Henry Plumbing is your local resource for septic systems and septic repairs. We specialize in working with homeowners to help them through the entire process of replacing or repairing their systems, from securing the necessary permits to cost-effective installation options. We work not only with residential systems but also commercial installations &ndash; ensuring customer satisfaction is our main focus.</p>
-      <div class="contact-strip">
-        <h3>Contact us by calling our office at <a href="tel:2565855483">(256) 585-5483</a>, or visit our <a href="contact-us.html">contact page</a> to request an inspection.</h3>
-        <a href="index.html#schedule" class="btn btn-blue btn-sm">Book Now!</a>
-      </div>
       <h2>Septic Tank Services</h2>
       <p>Having a septic tank pumped and cleaned by an expert can help you avoid problems in the future. Septic pumping ensures that all parts of your system work well together, which will ensure proper wastewater disposal with less risk of malfunction or backups.</p>
       <h2>Septic Tank Repair</h2>
       <p>If you have a broken septic tank, sewage waste water can leak onto your property. Damage to your septic tank could be caused by tree roots or regular wear and tear. Contact us today!</p>
-      <div class="unsure-box">
+      <div class="service-cta">
         <h3>Got a plumbing problem? Contact us by calling our office at <a href="tel:2565855483">(256) 585-5483</a>, or visit our <a href="contact-us.html">contact page</a> to request an inspection.</h3>
+        <a href="#schedule" class="btn btn-blue">Book Now!</a>
       </div>
     </article>
 
-    <aside class="area-sidebar">
-      <div class="side-services">
+    <aside class="service-side">
+      <div class="side-call">
+        <h2>Need A Plumber?</h2>
+        <p>We are open 24/7 for plumbing services.</p>
+        <a href="tel:2565855483" class="side-call-phone">(256) 585-5483</a>
+        <a href="#schedule" class="btn btn-green">Book Now!</a>
+      </div>
+      <nav class="side-list" aria-label="Our services">
         <h2>Our Services</h2>
         <ul>
           <li><a href="plumbing-services.html">Plumbing Services</a></li>
@@ -140,39 +147,54 @@
           <li><a href="backflow-testing.html">Backflow Testing</a></li>
           <li><a href="memberships.html">Memberships</a></li>
         </ul>
-      </div>
+      </nav>
+    </aside>
+  </div>
 
-
-      <div class="side-schedule" id="schedule">
-        <h2>Schedule Your<br>Appointment</h2>
+  <!-- Schedule form -->
+  <section class="schedule-section">
+    <div class="container">
+      <div class="schedule-box" id="schedule">
+        <h2>Schedule Your Appointment With<br>J. Henry Plumbing</h2>
         <form class="schedule-form" action="#" method="post">
-          <label>Name:
-            <input type="text" name="name" placeholder="Name" required>
-          </label>
-          <label>City:
-            <input type="text" name="city" placeholder="Your city here">
-          </label>
-          <label>Email:
-            <input type="email" name="email" required>
-          </label>
-          <label>Phone Number:
-            <input type="tel" name="phone" placeholder="Your phone number here" required>
-          </label>
-          <label>Service Needed:
+          <div class="form-row">
+            <label>Name:
+              <input type="text" name="name" placeholder="Name" required>
+            </label>
+            <label>City:
+              <input type="text" name="city" placeholder="Your city here">
+            </label>
+          </div>
+          <div class="form-row">
+            <label>Email:
+              <input type="email" name="email" placeholder="Your email here" required>
+            </label>
+            <label>Phone Number:
+              <input type="tel" name="phone" placeholder="Your phone number here" required>
+            </label>
+          </div>
+          <fieldset class="callback">
+            <legend>Call-back Time:</legend>
+            <label><input type="checkbox" name="callback" value="asap"> ASAP</label>
+            <label><input type="checkbox" name="callback" value="morning"> Morning</label>
+            <label><input type="checkbox" name="callback" value="afternoon"> Afternoon</label>
+            <label><input type="checkbox" name="callback" value="after5"> After 5pm</label>
+          </fieldset>
+          <label class="full">Service Needed:
             <input type="text" name="service">
           </label>
-          <label>How Can We Help You?:
+          <label class="full">How Can We Help You?:
             <textarea name="message" rows="3"></textarea>
           </label>
           <label class="consent">
             <input type="checkbox" name="sms_consent">
             <span>By checking this box and signing up for texts, you agree to receive informational messages (appointment reminders, account notifications, marketing and promotional messages such as sales, coupons, seasonal deals, etc.) from J Henry Plumbing at the number provided. Msg &amp; data rates may apply. Msg frequency varies. Unsubscribe anytime by replying STOP. Reply HELP for help or email us at Service@jhenryplumbing.com. Learn more on our <a href="privacy-policy.html#terms">Terms &amp; Conditions</a> <a href="privacy-policy.html">Privacy Policy</a></span>
           </label>
-          <button type="submit" class="btn btn-green btn-sm"><em>Submit</em></button>
+          <button type="submit" class="btn btn-green"><em>Schedule an Appointment</em></button>
         </form>
       </div>
-    </aside>
-  </div>
+    </div>
+  </section>
 
   <!-- What makes us different -->
   <section class="different">
