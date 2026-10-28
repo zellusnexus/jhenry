@@ -435,8 +435,10 @@ img.img-missing { color: transparent; font-size: 0; }
 /* the service-area map picture with the contact card overlapping its right edge */
 .map-contact { padding: 60px 0; }
 .contact-wrap { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; }
-.service-map { width: 100%; aspect-ratio: 4 / 3; background: #e8ecef; isolation: isolate; }    /* keeps the map's layers below the contact card */
-.service-map .leaflet-control-attribution { font-size: 10px; }
+/* Google My Maps embed: the My Maps title bar is pushed up out of view, and the
+   map ignores the mouse so it can't be dragged or zoomed */
+.service-map { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: #e8ecef; }
+.service-map iframe { position: absolute; left: 0; top: -60px; width: 100%; height: calc(100% + 60px); border: 0; pointer-events: none; }
 .contact-card { position: relative; z-index: 1; margin-left: -60px; background: var(--white); box-shadow: 0 6px 24px rgba(20, 20, 60, .2); padding: 34px 32px; }
 .contact-card h2 { font-size: 26px; margin-bottom: 10px; }
 .contact-intro { font-size: 14px; color: var(--muted); margin: 0 0 22px; }
