@@ -432,10 +432,11 @@ img.img-missing { color: transparent; font-size: 0; }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
 /* ---------- Map + contact ---------- */
-/* desktop: the service-area map fills the section and the contact card sits on
-   top of its right side; the map is a little taller than the card */
-.map-contact { position: relative; }
-.contact-wrap { position: relative; display: flex; justify-content: flex-end; padding-top: 66px; padding-bottom: 66px; pointer-events: none; }
+/* desktop: the service-area map spans the page width (inside the side margins)
+   and the contact card sits on top of its right side; the map is a little taller
+   than the card */
+.map-contact { padding: 60px 0; }
+.contact-wrap { position: relative; display: flex; justify-content: flex-end; padding: 66px 40px; pointer-events: none; }
 /* Google My Maps embed, drawn very wide so its edges (zoom and re-centre buttons)
    and its 60px title bar fall outside the box. main.js scales it to the box height
    and slides it so the service area (the map's centre) sits in the middle of the
@@ -975,11 +976,10 @@ body.lightbox-open { overflow: hidden; }
    Responsive
    ========================================================== */
 @media (max-width: 1100px) {
-  /* the map sits on top, full width, with the card overlapping its bottom edge */
-  .map-contact { padding-bottom: 50px; }
+  /* the map sits on top with the card overlapping its bottom edge */
   .service-map { position: relative; inset: auto; aspect-ratio: 4 / 3; max-height: 520px; width: 100%; }
-  .contact-wrap { display: block; padding-top: 0; padding-bottom: 0; }
-  .contact-card { width: auto; max-width: 720px; margin: -40px auto 0; }
+  .contact-wrap { display: block; padding: 0; }
+  .contact-card { width: auto; margin: -40px 24px 0; }
   .main-nav > ul { gap: 14px; }
   .main-nav a { font-size: 14px; }
   .logo-mark { width: 50px; height: 50px; }
@@ -1037,7 +1037,8 @@ body.lightbox-open { overflow: hidden; }
 }
 
 @media (max-width: 600px) {
-  .contact-card { padding: 26px 22px; }
+  .contact-card { padding: 26px 22px; margin: -40px 12px 0; }
+  .service-map { aspect-ratio: 1 / 1; }
   .lightbox-btn { width: 42px; height: 42px; }
   .related-grid, .book-form { grid-template-columns: 1fr; }
   .article-gallery { grid-template-columns: repeat(2, 1fr); gap: 12px; }
