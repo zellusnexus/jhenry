@@ -943,6 +943,17 @@ body.lightbox-open { overflow: hidden; }
 .different-item svg { width: 34px; height: 34px; flex-shrink: 0; }
 .different-item p { margin: 0; }
 
+/* Service pages: the appointment form sits beside the points on a light panel */
+.different-with-form { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; background: #f5f6f8; padding-top: calc(var(--diff-overlap) + 30px); }
+.different-with-form .different-text h2 { color: var(--black); }
+.different-with-form .underline { background: var(--green); }
+.different-with-form .different-grid { grid-template-columns: 1fr; gap: 22px; }
+.different-with-form .different-item { color: var(--text); }
+.different-with-form .different-item svg circle { fill: var(--green); }
+.different-with-form .different-item svg path { fill: var(--white); }
+.different-with-form .schedule-box { margin: 0; }
+.different-with-form .schedule-box h2 { color: var(--white); font-size: clamp(22px, 2.2vw, 28px); line-height: 1.25; }
+
 /* ---------- Service pages ---------- */
 .page-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
 .service-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; align-items: start; padding-top: 64px; padding-bottom: 64px; }
@@ -983,6 +994,7 @@ body.lightbox-open { overflow: hidden; }
 @media (max-width: 900px) {
   .service-layout { grid-template-columns: 1fr; gap: 32px; padding-top: 44px; padding-bottom: 44px; }
   .service-side { position: static; }
+  .different-with-form { grid-template-columns: 1fr; gap: 32px; }
   .side-list { display: none; }    /* the services are in the main menu on phones */
   .service-main .area-list { grid-template-columns: 1fr; padding: 14px; }
   .service-cta { flex-direction: column; text-align: center; }
