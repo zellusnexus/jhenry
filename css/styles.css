@@ -324,7 +324,7 @@ img.img-missing { color: transparent; font-size: 0; }
 .promise {
   position: relative;
   padding: 80px 0 90px;
-  background: #2b2e7a url('../images/j-henry-plumbing-our-promise-background.jpg') center / cover no-repeat;
+  background: #2b2e7a url('https://5e9x7vx89b.ucarecd.net/cba6d2d4-fcc7-44f0-a5d4-453ee053a042/van-ab3.jpg') center / cover no-repeat;
 }
 .promise-overlay { position: absolute; inset: 0; background: rgba(40, 34, 140, .78); }
 .promise-grid { position: relative; display: grid; gap: 44px; }
