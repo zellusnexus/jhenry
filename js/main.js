@@ -439,19 +439,30 @@ if (introForm) {
   centreForm();
 }
 
-// "What Makes Us Different" beside the appointment form: the box sticks just
-// under the header, or on short screens by its bottom edge so the points and
-// call line stay in view while the form scrolls past
+// "What Makes Us Different" beside the taller appointment form: as the section
+// scrolls past, the box drifts down its column at a slower pace, starting level
+// with the top of the form and finishing level with its bottom (wide screens
+// only; it stays put for visitors who prefer reduced motion)
 const diffBox = document.querySelector('.different-split .different-inner');
-if (diffBox) {
+if (diffBox && !reduceMotion.matches) {
   const header = document.querySelector('.site-header');
+  const column = diffBox.parentElement;
+  let queued = false;
   const placeDiff = () => {
-    const below = (header ? header.offsetHeight : 0) + 20;
-    const top = Math.min(below, window.innerHeight - diffBox.offsetHeight - 20);
-    diffBox.style.setProperty('--stick-top', `${Math.round(top)}px`);
+    queued = false;
+    const room = column.offsetHeight - diffBox.offsetHeight;
+    if (window.innerWidth <= 900 || room <= 0) { diffBox.style.transform = ''; return; }
+    const top = header ? header.offsetHeight : 0;
+    const box = column.getBoundingClientRect();
+    // 0 when the section reaches the header, 1 when its bottom reaches the screen's
+    const travel = box.height - (window.innerHeight - top);
+    const progress = travel > 0 ? Math.min(1, Math.max(0, (top - box.top) / travel)) : 0;
+    diffBox.style.transform = `translateY(${Math.round(progress * room)}px)`;
   };
-  window.addEventListener('resize', placeDiff);
-  if ('ResizeObserver' in window) new ResizeObserver(placeDiff).observe(diffBox);
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(placeDiff); } };
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue);
+  if ('ResizeObserver' in window) new ResizeObserver(queue).observe(column);
   placeDiff();
 }
 
