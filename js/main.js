@@ -158,15 +158,6 @@ document.querySelectorAll('[data-share]').forEach((link) => {
   link.href = targets[link.dataset.share];
 });
 
-// Resume upload: show the chosen file name
-document.querySelectorAll('.upload-drop input[type=file]').forEach((input) => {
-  const label = input.nextElementSibling;
-  const placeholder = label.textContent;
-  input.addEventListener('change', () => {
-    label.textContent = input.files.length ? input.files[0].name : placeholder;
-  });
-});
-
 // Show a neutral placeholder for any photo not yet added to /images
 document.querySelectorAll('img').forEach((img) => {
   const markMissing = () => img.classList.add('img-missing');
