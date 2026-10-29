@@ -804,7 +804,27 @@ body.lightbox-open { overflow: hidden; }
 
 .apply { padding: 60px 0; }
 .apply-inner { max-width: 900px; }
-.apply-embed { margin-top: 24px; }
+.apply-form { display: grid; gap: 12px; margin-top: 24px; }
+.apply-form input[type=text],
+.apply-form input[type=email],
+.apply-form input[type=tel],
+.apply-form textarea {
+  width: 100%;
+  border: 1px solid #e2e2e2;
+  background: #f7f7f7;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--text);
+}
+.apply-form textarea { resize: vertical; min-height: 80px; }
+.upload { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.upload-label { font-weight: 700; font-size: 15px; }
+.upload-drop { position: relative; display: block; border: 1px dashed #ccc; padding: 16px 14px; font-size: 14px; color: var(--muted); cursor: pointer; }
+.upload-drop:hover { border-color: var(--blue); }
+.upload-drop input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.upload-drop:focus-within { outline: 2px solid var(--blue); outline-offset: 2px; }
+.apply-form .btn { justify-self: center; margin-top: 14px; }
 
 /* ---------- Privacy policy ---------- */
 .policy { max-width: 1000px; font-size: 15px; color: var(--muted); }
@@ -902,6 +922,8 @@ body.lightbox-open { overflow: hidden; }
 .apply-inner { background: var(--navy); padding: 44px 50px; }
 .apply-inner .page-title { color: var(--white); }
 .apply-inner .eyebrow { color: rgba(255, 255, 255, .85); }
+.apply-inner .upload-label { color: var(--white); }
+.apply-inner .upload-drop { border-color: rgba(255, 255, 255, .5); color: rgba(255, 255, 255, .85); }
 
 /* Blog articles: text column beside the service-page sidebar */
 .article-layout .article { padding: 0; }
