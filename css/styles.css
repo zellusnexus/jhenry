@@ -284,13 +284,17 @@ img.img-missing { color: transparent; font-size: 0; }
 .intro-text p { font-size: 15px; color: var(--muted); }
 .intro-text p.eyebrow { color: var(--blue); }
 /* one wide photo with the other two side by side underneath */
-/* wide screens: the form stays centred on screen while the text beside it scrolls */
-@media (min-width: 901px) {
-  .intro-grid > .form-embed { position: sticky; top: var(--form-top, 100px); }
-}
 .intro-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 30px; }
 .intro-gallery img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 .intro-gallery img:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+/* wide screens: the form stays centred on screen while the text beside it
+   scrolls, and the photos are taller to fill the column beside the long form */
+@media (min-width: 901px) {
+  .intro-grid > .form-embed { position: sticky; top: var(--form-top, 100px); }
+  .intro-gallery { gap: 14px; }
+  .intro-gallery img { aspect-ratio: 1 / 1; }
+  .intro-gallery img:first-child { aspect-ratio: 3 / 2; }
+}
 
 
 /* ---------- Promise ---------- */
