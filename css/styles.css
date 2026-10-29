@@ -565,6 +565,7 @@ a.badge:hover { opacity: .85; }
   background-position: center;
   text-align: center;
 }
+.page-hero.hero-top { background-position: center 22%; }    /* photo's subject sits in its upper part */
 .page-hero-overlay { position: absolute; inset: 0; background: rgba(40, 34, 140, .7); }
 .page-hero-content { position: relative; padding: 50px var(--gutter) 56px; }
 .page-hero h1 { color: var(--white); font-style: italic; font-size: clamp(30px, 3.4vw, 50px); margin-bottom: .3em; }
