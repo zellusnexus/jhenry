@@ -836,7 +836,8 @@ body.lightbox-open { overflow: hidden; }
 
 /* ---------- Service area pages ---------- */
 .area-hero .page-hero-content { text-align: left; padding: 60px var(--gutter) 40px; }
-.area-hero .breadcrumb { justify-content: flex-start; gap: 8px; font-size: 13px; margin-bottom: 0; }
+.area-hero .breadcrumb { justify-content: flex-start; flex-wrap: wrap; gap: 4px 8px; font-size: 13px; margin-bottom: 0; }
+.area-hero .article-meta { margin-top: 10px; }
 .area-hero h1 { margin-bottom: .5em; }
 
 .area-main h2 { font-size: clamp(24px, 2.2vw, 32px); margin-top: 1.6em; }
