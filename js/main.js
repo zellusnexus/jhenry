@@ -456,5 +456,33 @@ if (hashTarget && 'ResizeObserver' in window) {
   setTimeout(stop, 3000);
 }
 
+// In-page links (e.g. Book Now to #schedule): photos loading on the way down can
+// push the section further along while the page glides there, so once the
+// scroll ends, finish the trip if it fell short (unless the visitor took over)
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href*="#"]');
+  if (!link || link.pathname !== location.pathname || !link.hash) return;
+  const target = document.getElementById(link.hash.slice(1));
+  if (!target) return;
+  const root = document.documentElement;
+  let tries = 0;
+  let cancelled = false;
+  const cancel = () => { cancelled = true; };
+  ['wheel', 'touchstart', 'keydown'].forEach((type) => window.addEventListener(type, cancel, { once: true, passive: true }));
+  const wait = () => {
+    if ('onscrollend' in window) window.addEventListener('scrollend', check, { once: true });
+    else setTimeout(check, 1200);
+  };
+  const check = () => {
+    if (cancelled) return;
+    const pad = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0;
+    if (Math.abs(target.getBoundingClientRect().top - pad) > 2 && tries++ < 3) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      wait();
+    }
+  };
+  wait();
+});
+
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
