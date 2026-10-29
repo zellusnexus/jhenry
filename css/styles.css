@@ -854,7 +854,6 @@ body.lightbox-open { overflow: hidden; }
 .area-hero .breadcrumb { justify-content: flex-start; gap: 8px; font-size: 13px; margin-bottom: 0; }
 .area-hero h1 { margin-bottom: .5em; }
 
-.area-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 60px; align-items: start; max-width: var(--wrap); padding-top: 40px; padding-bottom: 60px; }
 .area-main h2 { font-size: clamp(24px, 2.2vw, 32px); margin-top: 1.6em; }
 .area-main > h2:first-child { margin-top: 0; }
 .area-main p { font-size: 15px; color: var(--muted); line-height: 1.9; margin: 0 0 1em; }
@@ -869,9 +868,6 @@ body.lightbox-open { overflow: hidden; }
 .area-list.cols { columns: 2; column-gap: 40px; }
 .area-list.cols li { break-inside: avoid; }
 
-.contact-strip { border-top: 2px solid #a7dc8a; border-bottom: 2px solid #a7dc8a; padding: 24px 40px; margin: 10px 0 40px; text-align: center; }
-.contact-strip h3 { font-size: 18px; margin: 0; line-height: 1.5; }
-.contact-strip a { color: var(--green); }
 
 .area-sub { display: flex; align-items: center; gap: 16px; margin: 2em 0 .8em; }
 .area-sub .icon { width: 44px; height: 44px; flex-shrink: 0; fill: none; stroke: var(--green); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
@@ -882,51 +878,6 @@ body.lightbox-open { overflow: hidden; }
 .brand-col .logo-mark { width: 40px; height: 40px; }
 .brand-col ul { list-style: none; margin: 0; padding: 0; font-size: 14px; line-height: 2.1; }
 .brand-col li::before { content: '\2022'; margin-right: 10px; }
-
-.unsure-box { background: var(--blue); box-shadow: 10px 10px 0 var(--green); padding: 22px 40px; margin: 40px 10px 0 0; }
-.unsure-box h3 { color: var(--white); font-size: 18px; line-height: 1.6; margin: 0; }
-.unsure-box a { color: var(--green); }
-
-/* Sidebar */
-.area-sidebar { display: grid; gap: 22px; margin-top: -150px; position: relative; z-index: 2; }
-.side-services {
-  position: relative;
-  overflow: hidden;
-  background: var(--blue);
-  padding: 30px 24px 26px;
-}
-.side-services::after {
-  content: 'jh';
-  position: absolute;
-  right: -30px;
-  top: -20px;
-  font: 700 300px/1 var(--body);
-  letter-spacing: -.08em;
-  color: rgba(255, 255, 255, .07);
-  pointer-events: none;
-}
-.side-services h2 { color: var(--white); font-size: 22px; margin-bottom: 14px; }
-.side-services ul { position: relative; z-index: 1; list-style: none; margin: 0; padding: 0; }
-.side-services a { display: block; color: var(--white); font-size: 15px; padding: 10px 0; }
-.side-services a:hover { color: var(--green); text-decoration: none; }
-
-.side-interested { background: linear-gradient(rgba(14, 10, 92, .88), rgba(14, 10, 92, .88)), #2b2e7a url('../images/j-henry-plumbing-service-van-side-view.jpg') center / cover no-repeat; color: var(--white); text-align: center; padding: 26px 22px 28px; border: 6px solid var(--navy); }
-.side-interested .logo { margin-bottom: 14px; }
-.side-interested .logo-name { color: var(--green); }
-.side-interested .logo-sub { color: var(--white); }
-.side-interested h2 { color: var(--white); font-size: 20px; margin-bottom: 10px; }
-.side-interested p { font-size: 14px; line-height: 1.8; margin: 0 0 16px; }
-
-.side-schedule { background: var(--navy); color: var(--white); padding: 26px 22px 30px; }
-.side-schedule h2 { color: var(--white); font-size: 22px; margin-bottom: 20px; }
-.side-schedule .schedule-form { font-size: 13px; gap: 14px; }
-.side-schedule .schedule-form input[type=text],
-.side-schedule .schedule-form input[type=email],
-.side-schedule .schedule-form input[type=tel],
-.side-schedule .schedule-form textarea { padding: 9px 10px; font-size: 14px; }
-.side-schedule .schedule-form ::placeholder { color: #999; font-size: 13px; }
-.side-schedule .consent { font-size: 11px; }
-.side-schedule .consent a { color: var(--green); }
 
 /* What makes us different */
 .different { padding: 30px 0 60px; }
@@ -991,8 +942,6 @@ body.lightbox-open { overflow: hidden; }
 .side-list a { display: block; padding: 9px 20px 9px 17px; border-left: 3px solid transparent; color: var(--text); font-size: 15px; }
 .side-list a:hover { color: var(--blue); text-decoration: none; }
 .side-list a.current { color: var(--blue); font-weight: 700; border-left-color: var(--green); background: #f5f6f8; }
-.side-services a.current { background: var(--green); margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
-.side-services a.current:hover { color: var(--white); }
 .footer-cols a.current { color: var(--green); }
 
 @media (max-width: 900px) {
@@ -1000,7 +949,11 @@ body.lightbox-open { overflow: hidden; }
   .service-side { position: static; }
   .different-split-inner { grid-template-columns: 1fr; }
   .side-list { display: none; }    /* the services are in the main menu on phones */
-  .service-main .area-list { grid-template-columns: 1fr; padding: 14px; }
+  /* phones: a compact ticked list rather than a stack of cards */
+  .service-main .area-list { grid-template-columns: 1fr; gap: 0; padding: 10px 16px; }
+  .service-main .area-list li { padding: 9px 0 9px 34px; background: none; box-shadow: none; border-bottom: 1px solid #e3e5ea; }
+  .service-main .area-list li:last-child { border-bottom: 0; }
+  .service-main .area-list li::before { left: 0; }
   .service-cta { flex-direction: column; text-align: center; }
 }
 
@@ -1096,8 +1049,6 @@ body.lightbox-open { overflow: hidden; }
   .team-grid { grid-template-columns: repeat(3, 1fr); }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
 
-  .area-layout { grid-template-columns: 1fr; gap: 40px; }
-  .area-sidebar { margin-top: 0; max-width: 520px; width: 100%; margin-left: auto; margin-right: auto; }
   .contact-layout { grid-template-columns: 1fr; max-width: 520px; }
   .post { grid-template-columns: 240px minmax(0, 1fr); gap: 24px; }
 }
@@ -1157,9 +1108,7 @@ body.lightbox-open { overflow: hidden; }
 
   .area-hero .page-hero-content { padding: 40px var(--gutter) 30px; }
   .area-list.cols { columns: 1; }
-  .contact-strip { padding: 20px 0; }
   .brand-box { grid-template-columns: 1fr; padding: 24px; }
-  .unsure-box { padding: 20px 22px; }
   .different-body { padding: calc(var(--diff-overlap) + 16px) 22px 34px; }
   .different-body h2 { font-size: 28px; }
   .different-grid { grid-template-columns: 1fr; }
