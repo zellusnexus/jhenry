@@ -567,7 +567,7 @@ a.badge:hover { opacity: .85; }
   top: 2px;
   width: 16px;
   height: 16px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%232b2ee0'/%3E%3Cpath d='M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z' fill='%23fff'/%3E%3Cpath d='M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z' fill='%23fff'/%3E%3C/svg%3E") center / contain no-repeat;
+  background: url('https://5e9x7vx89b.ucarecd.net/7377b013-7fe8-46c7-8a03-d7346abfd241/blue-simple-logo-u4.png') center / contain no-repeat;
 }
 
 /* ---------- Colour bands (About, Memberships) ---------- */
@@ -834,7 +834,7 @@ body.lightbox-open { overflow: hidden; }
 .different-body .underline { display: block; width: 54px; height: 3px; background: var(--white); margin: 6px 0 30px; }
 .different-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; }
 .different-item { display: flex; gap: 16px; align-items: flex-start; color: var(--white); font-size: 15px; line-height: 1.7; }
-.different-item svg { width: 34px; height: 34px; flex-shrink: 0; }
+.different-item img { width: 34px; height: 34px; flex-shrink: 0; }
 .different-item p { margin: 0; }
 
 /* Service pages: the green box and the appointment form side by side, with a
