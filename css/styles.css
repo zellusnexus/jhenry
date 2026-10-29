@@ -862,8 +862,9 @@ body.lightbox-open { overflow: hidden; }
    call line at the bottom of the green box */
 .different-split { padding: 10px 0 64px; }
 .different-split-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
-/* the green box keeps its own height; main.js drifts it down beside the taller form */
-.different-split .different-inner { will-change: transform; }
+/* the green box keeps its own height and holds beside the taller form; main.js
+   sets the hold position so its heading sits just under the header */
+.different-split .different-inner { position: sticky; top: var(--stick-top, 0px); }
 .different-split .different-body { padding: calc(var(--diff-overlap) + 20px) 34px 34px; }
 .different-split .different-body h2 { font-size: clamp(26px, 2.4vw, 34px); }
 .different-split .different-grid { grid-template-columns: 1fr; gap: 18px; margin-bottom: 30px; }
@@ -925,6 +926,7 @@ body.lightbox-open { overflow: hidden; }
   .service-side { position: static; }
   .apply-inner { padding: 30px 22px; }
   .different-split-inner { grid-template-columns: 1fr; }
+  .different-split .different-inner { position: static; }
   .side-list { display: none; }    /* the services are in the main menu on phones */
   /* phones: a compact ticked list rather than a stack of cards */
   .service-main .area-list, .jh-list.check-list { grid-template-columns: 1fr; gap: 0; padding: 10px 16px; }
