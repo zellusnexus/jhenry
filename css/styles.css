@@ -286,39 +286,12 @@ img.img-missing { color: transparent; font-size: 0; }
 /* one wide photo with the other two side by side underneath */
 /* wide screens: the form stays centred on screen while the text beside it scrolls */
 @media (min-width: 901px) {
-  .intro-grid > .schedule-box { position: sticky; top: var(--form-top, 100px); }
+  .intro-grid > .form-embed { position: sticky; top: var(--form-top, 100px); }
 }
 .intro-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 30px; }
 .intro-gallery img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 .intro-gallery img:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
 
-.schedule-box { background: var(--navy); color: var(--white); padding: 44px 40px 40px; }
-.schedule-box h2 { color: var(--white); font-size: clamp(22px, 2vw, 30px); }
-.schedule-form { display: grid; gap: 16px; font-size: 14px; font-weight: 700; }
-.schedule-form label { display: flex; flex-direction: column; gap: 4px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.schedule-form input[type=text],
-.schedule-form input[type=email],
-.schedule-form input[type=tel],
-.schedule-form textarea {
-  width: 100%;
-  border: 0;
-  border-radius: 0;
-  padding: 10px 12px;
-  font: inherit;
-  font-weight: 400;
-  font-size: 15px;
-  color: var(--text);
-}
-.schedule-form textarea { resize: vertical; min-height: 60px; }
-.schedule-form ::placeholder { color: var(--green); font-style: italic; font-size: 14px; }
-.callback { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; }
-.callback legend { padding: 0; margin-bottom: 6px; }
-.callback label { flex-direction: row; align-items: center; gap: 6px; font-weight: 500; }
-.consent { flex-direction: row !important; align-items: flex-start; gap: 8px !important; font-weight: 400; font-size: 12px; line-height: 1.5; }
-.consent input { margin-top: 2px; }
-.consent a { color: var(--green); }
-.schedule-form .btn { justify-self: start; margin-top: 6px; }
 
 /* ---------- Promise ---------- */
 .promise {
@@ -889,8 +862,6 @@ body.lightbox-open { overflow: hidden; }
 .different-split .different-body { flex: 1; display: flex; flex-direction: column; padding: calc(var(--diff-overlap) + 20px) 34px 34px; }
 .different-split .different-body h2 { font-size: clamp(26px, 2.4vw, 34px); }
 .different-split .different-grid { grid-template-columns: 1fr; gap: 18px; margin-bottom: 30px; }
-.different-split .schedule-box { margin: 0; }
-.different-split .schedule-box h2 { font-size: clamp(22px, 2vw, 26px); }
 .different-call { margin-top: auto; padding-top: 26px; border-top: 2px solid rgba(255, 255, 255, .35); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 .different-call p { margin: 0; color: var(--white); font-family: var(--heading); font-size: 20px; font-weight: 700; line-height: 1.3; text-transform: uppercase; }
 .different-call .btn { background: var(--white); color: var(--green); }
@@ -963,19 +934,7 @@ body.lightbox-open { overflow: hidden; }
 .contact-section { padding: 40px 0 90px; }
 /* Plumbing News: the home page's appointment form, centred on its own */
 .schedule-section { padding: 10px 0 20px; }
-.schedule-section .schedule-box { max-width: 720px; margin: 0 auto; }
-.contact-layout { display: grid; grid-template-columns: minmax(0, 520px) minmax(0, 1fr); gap: 60px; max-width: 1100px; align-items: start; }
-.contact-layout .schedule-box { padding: 36px 36px 40px; box-shadow: 0 2px 6px rgba(0,0,0,.15); }
-.contact-layout .schedule-box h2 { font-size: clamp(20px, 2vw, 26px); line-height: 1.4; margin-bottom: 1em; }
-.schedule-box-green { background: var(--green); }
-.schedule-box-green .schedule-form input[type=text],
-.schedule-box-green .schedule-form input[type=email],
-.schedule-box-green .schedule-form input[type=tel],
-.schedule-box-green .schedule-form textarea { background: rgba(255, 255, 255, .2); color: var(--white); }
-.schedule-box-green .schedule-form ::placeholder { color: var(--white); }
-.schedule-box-green .consent a { color: var(--white); text-decoration: underline; }
-.schedule-box-green .btn-green { background: var(--blue); }
-.schedule-box-green .btn-green:hover { background: var(--blue-dark); }
+.schedule-section .form-embed { max-width: 720px; margin: 0 auto; }
 
 .contact-info .logo { margin-bottom: 26px; }
 .contact-info h2 { font-size: clamp(24px, 2.4vw, 34px); }
@@ -1036,7 +995,6 @@ body.lightbox-open { overflow: hidden; }
   .has-dropdown.open .dropdown { display: block; }
 
   .intro-grid, .split { grid-template-columns: 1fr; }
-  .schedule-box { padding: 32px 20px; }
   .promise-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .promise-card h3 { min-height: 0; }
   .split-content { padding: 40px 32px; }
@@ -1050,7 +1008,6 @@ body.lightbox-open { overflow: hidden; }
   .team-grid { grid-template-columns: repeat(3, 1fr); }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
 
-  .contact-layout { grid-template-columns: 1fr; max-width: 520px; }
   .post { grid-template-columns: 240px minmax(0, 1fr); gap: 24px; }
 }
 
@@ -1087,7 +1044,6 @@ body.lightbox-open { overflow: hidden; }
   .promise-card { display: grid; grid-template-columns: 42px 1fr; column-gap: 16px; padding: 20px; }
   .promise-card .icon { grid-row: span 2; margin: 0; }
   .promise-card h3 { min-height: 0; margin-bottom: 6px; }
-  .form-row { grid-template-columns: 1fr; }
   .service-tiles, .news-carousel { --per: 2; }
   .footer-cols { grid-template-columns: 1fr; }
   .badges { gap: 22px; }
@@ -1111,7 +1067,6 @@ body.lightbox-open { overflow: hidden; }
   .different-body { padding: calc(var(--diff-overlap) + 16px) 22px 34px; }
   .different-body h2 { font-size: 28px; }
   .different-grid { grid-template-columns: 1fr; }
-  .contact-layout .schedule-box { padding: 30px 20px 32px; }
   .post { grid-template-columns: 1fr; gap: 14px; margin-bottom: 34px; }
 }
 

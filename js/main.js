@@ -420,7 +420,7 @@ document.querySelectorAll('.card-carousel').forEach((carousel) => {
 // Home intro: on wide screens the schedule form sticks centred on the screen
 // beside the taller text column (CSS position: sticky); this just works out
 // how far down the screen "centred" is for the form's height
-const introForm = document.querySelector('.intro-grid > .schedule-box');
+const introForm = document.querySelector('.intro-grid > .form-embed');
 
 if (introForm) {
   const header = document.querySelector('.site-header');
@@ -434,6 +434,8 @@ if (introForm) {
   };
   window.addEventListener('resize', centreForm);
   window.addEventListener('load', centreForm);
+  // the embedded form grows to its full height once it has loaded
+  if ('ResizeObserver' in window) new ResizeObserver(centreForm).observe(introForm);
   centreForm();
 }
 
