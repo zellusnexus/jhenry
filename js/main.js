@@ -439,30 +439,22 @@ if (introForm) {
   centreForm();
 }
 
-// "What Makes Us Different" beside the taller appointment form: as the section
-// scrolls past, the box drifts down its column at a slower pace, starting level
-// with the top of the form and finishing level with its bottom (wide screens
-// only; it stays put for visitors who prefer reduced motion)
+// "What Makes Us Different" beside the taller appointment form: the box scrolls
+// normally until its heading is just under the header, then holds there (its
+// banner tucked under the header) until its bottom lines up with the form's
 const diffBox = document.querySelector('.different-split .different-inner');
-if (diffBox && !reduceMotion.matches) {
+if (diffBox) {
   const header = document.querySelector('.site-header');
-  const column = diffBox.parentElement;
-  let queued = false;
+  const heading = diffBox.querySelector('h2');
   const placeDiff = () => {
-    queued = false;
-    const room = column.offsetHeight - diffBox.offsetHeight;
-    if (window.innerWidth <= 900 || room <= 0) { diffBox.style.transform = ''; return; }
-    const top = header ? header.offsetHeight : 0;
-    const box = column.getBoundingClientRect();
-    // 0 when the section reaches the header, 1 when its bottom reaches the screen's
-    const travel = box.height - (window.innerHeight - top);
-    const progress = travel > 0 ? Math.min(1, Math.max(0, (top - box.top) / travel)) : 0;
-    diffBox.style.transform = `translateY(${Math.round(progress * room)}px)`;
+    const below = (header ? header.offsetHeight : 0) + 20;
+    const headingAt = heading.getBoundingClientRect().top - diffBox.getBoundingClientRect().top;
+    // on short screens, hold it lower so the call line at its bottom stays in view
+    const top = Math.min(below - headingAt, window.innerHeight - diffBox.offsetHeight - 20);
+    diffBox.style.setProperty('--stick-top', `${Math.round(top)}px`);
   };
-  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(placeDiff); } };
-  window.addEventListener('scroll', queue, { passive: true });
-  window.addEventListener('resize', queue);
-  if ('ResizeObserver' in window) new ResizeObserver(queue).observe(column);
+  window.addEventListener('resize', placeDiff);
+  if ('ResizeObserver' in window) new ResizeObserver(placeDiff).observe(diffBox);
   placeDiff();
 }
 
