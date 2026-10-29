@@ -943,15 +943,9 @@ body.lightbox-open { overflow: hidden; }
 .different-item svg { width: 34px; height: 34px; flex-shrink: 0; }
 .different-item p { margin: 0; }
 
-/* Service pages: the appointment form joins the bottom of the green box, at the
-   same width; on wide screens its heading sits to the left of the fields */
-.different:has(+ .schedule-wide) { padding-bottom: 0; }
+/* Service pages: the appointment form as its own block, as wide as the green box above */
 .schedule-section.schedule-wide { padding: 0 0 64px; }
 .schedule-section.schedule-wide .schedule-box { max-width: none; }
-@media (min-width: 1101px) {
-  .schedule-section.schedule-wide .schedule-box { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr); gap: 48px; align-items: start; padding: 44px 50px; }
-  .schedule-section.schedule-wide .schedule-box h2 { font-size: clamp(26px, 2.2vw, 32px); line-height: 1.2; margin: 0; }
-}
 
 /* ---------- Service pages ---------- */
 .page-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
