@@ -439,6 +439,22 @@ if (introForm) {
   centreForm();
 }
 
+// "What Makes Us Different" beside the appointment form: the box sticks just
+// under the header, or on short screens by its bottom edge so the points and
+// call line stay in view while the form scrolls past
+const diffBox = document.querySelector('.different-split .different-inner');
+if (diffBox) {
+  const header = document.querySelector('.site-header');
+  const placeDiff = () => {
+    const below = (header ? header.offsetHeight : 0) + 20;
+    const top = Math.min(below, window.innerHeight - diffBox.offsetHeight - 20);
+    diffBox.style.setProperty('--stick-top', `${Math.round(top)}px`);
+  };
+  window.addEventListener('resize', placeDiff);
+  if ('ResizeObserver' in window) new ResizeObserver(placeDiff).observe(diffBox);
+  placeDiff();
+}
+
 // Arriving on a link to a section (e.g. index.html#services): images above it can
 // still change size as they load and push it down, so keep it lined up under the
 // header while the page settles (up to 3 seconds, or until the visitor scrolls)

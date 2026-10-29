@@ -854,15 +854,17 @@ body.lightbox-open { overflow: hidden; }
 .different-item svg { width: 34px; height: 34px; flex-shrink: 0; }
 .different-item p { margin: 0; }
 
-/* Service pages: the green box and the appointment form side by side, the
-   same height, with a call line filling the bottom of the green box */
+/* Service pages: the green box and the appointment form side by side, with a
+   call line at the bottom of the green box */
 .different-split { padding: 10px 0 64px; }
-.different-split-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; }
-.different-split .different-inner { display: flex; flex-direction: column; }
-.different-split .different-body { flex: 1; display: flex; flex-direction: column; padding: calc(var(--diff-overlap) + 20px) 34px 34px; }
+.different-split-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+/* the green box keeps its own height and glides alongside the taller form;
+   main.js sets how far down the screen it sits */
+.different-split .different-inner { position: sticky; top: var(--stick-top, 130px); }
+.different-split .different-body { padding: calc(var(--diff-overlap) + 20px) 34px 34px; }
 .different-split .different-body h2 { font-size: clamp(26px, 2.4vw, 34px); }
 .different-split .different-grid { grid-template-columns: 1fr; gap: 18px; margin-bottom: 30px; }
-.different-call { margin-top: auto; padding-top: 26px; border-top: 2px solid rgba(255, 255, 255, .35); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.different-call { padding-top: 26px; border-top: 2px solid rgba(255, 255, 255, .35); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 .different-call p { margin: 0; color: var(--white); font-family: var(--heading); font-size: 20px; font-weight: 700; line-height: 1.3; text-transform: uppercase; }
 .different-call .btn { background: var(--white); color: var(--green); }
 .different-call .btn:hover { background: var(--navy); color: var(--white); }
@@ -920,6 +922,7 @@ body.lightbox-open { overflow: hidden; }
   .service-side { position: static; }
   .apply-inner { padding: 30px 22px; }
   .different-split-inner { grid-template-columns: 1fr; }
+  .different-split .different-inner { position: static; }
   .side-list { display: none; }    /* the services are in the main menu on phones */
   /* phones: a compact ticked list rather than a stack of cards */
   .service-main .area-list, .jh-list.check-list { grid-template-columns: 1fr; gap: 0; padding: 10px 16px; }
