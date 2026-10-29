@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/favicon.png?v=2">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="css/styles.css?v=109">
+  <link rel="stylesheet" href="css/styles.css?v=110">
 </head>
 <body>
 
@@ -80,17 +80,21 @@
   </header>
 
   <!-- Article hero -->
-  <section class="page-hero article-hero" style="background-image:url('https://5e9x7vx89b.ucarecd.net/6d475fe8-d6be-4553-9e4d-7aa9baeaf23c/warning-signs-n4.jpeg')">
+  <section class="page-hero area-hero" style="background-image:url('https://5e9x7vx89b.ucarecd.net/6d475fe8-d6be-4553-9e4d-7aa9baeaf23c/warning-signs-n4.jpeg')">
     <div class="page-hero-overlay"></div>
     <div class="container page-hero-content">
       <h1>15 Warning Signs Your Home Has a Plumbing Problem</h1>
       <p class="article-meta">By J. Henry Plumbing | August 12, 2026</p>
+      <div class="page-hero-btns">
+        <a href="#schedule" class="btn btn-green">Book Now!</a>
+        <a href="tel:2565855483" class="btn btn-outline-green">Call (256) 585-5483</a>
+      </div>
     </div>
   </section>
 
-  <!-- Article -->
-  <article class="article">
-    <div class="container article-inner">
+  <!-- Article + sidebar -->
+  <div class="container service-layout article-layout">
+    <article class="article">
 <p>Common plumbing warning signs include slow drains, low water pressure, discolored water, foul odors, gurgling noises, unexplained water bill spikes, water stains, puddles near fixtures, running toilets, inconsistent hot water, corroded pipes, and water heater leaks. Catching these issues early can prevent serious, and expensive, home damage.</p>
 <p>A small drip under the sink. A toilet that keeps running after you flush. These might seem like minor annoyances, but plumbing problems rarely stay small for long. According to the Environmental Protection Agency (EPA), household leaks waste nearly 1 trillion gallons of water nationwide each year, and many of those leaks go undetected for months.</p>
 <p>For homeowners in Huntsville and North Alabama, identifying plumbing issues early is one of the smartest home maintenance decisions you can make. At <a href="plumbing-services.html">J. Henry Plumbing</a>, our licensed technicians have seen firsthand how a slow drain or a faint water stain can quickly escalate into thousands of dollars in structural damage, mold remediation, and pipe replacement.</p>
@@ -176,8 +180,30 @@
         <a class="share-wa" data-share="whatsapp" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><span class="ico ico-whatsapp" aria-hidden="true"></span></a>
         <a class="share-mail" data-share="email" href="#" aria-label="Share by email"><span class="ico ico-email" aria-hidden="true"></span></a>
       </div>
-    </div>
-  </article>
+    </article>
+
+    <aside class="service-side">
+      <div class="side-call">
+        <h2>Need A Plumber?</h2>
+        <p>We are open 24/7 for plumbing services.</p>
+        <a href="tel:2565855483" class="side-call-phone">(256) 585-5483</a>
+        <a href="#schedule" class="btn btn-green">Book Now!</a>
+      </div>
+      <nav class="side-list" aria-label="Our services">
+        <h2>Our Services</h2>
+        <ul>
+          <li><a href="plumbing-services.html">Plumbing Services</a></li>
+          <li><a href="sewer-drain-cleaning.html">Sewer Drain Cleaning</a></li>
+          <li><a href="septic-systems.html">Septic Systems</a></li>
+          <li><a href="pump-installation-services.html">Pump Installation Services</a></li>
+          <li><a href="backhoe-services.html">Backhoe Services</a></li>
+          <li><a href="water-heater-repair-installation.html">Water Heater Repair &amp; Installation</a></li>
+          <li><a href="backflow-testing.html">Backflow Testing</a></li>
+          <li><a href="memberships.html">Memberships</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
 
   <!-- Related posts -->
   <section class="related">
@@ -210,27 +236,65 @@
     </div>
   </section>
 
-  <!-- Book a service -->
-  <section class="book" id="schedule">
-    <div class="container book-inner">
-      <h2 class="page-title center">Book a Service Today</h2>
-      <form class="apply-form book-form" action="#" method="post">
-        <input type="text" name="name" placeholder="Name" aria-label="Name" required>
-        <input type="tel" name="phone" placeholder="Phone" aria-label="Phone" required>
-        <input type="email" name="email" placeholder="Email" aria-label="Email" required>
-        <select name="service" aria-label="Service Type">
-          <option value="">Service Type</option>
-          <option>Plumbing</option>
-          <option>Sewer Drain Cleaning</option>
-          <option>Septic Systems</option>
-          <option>Pump Installation</option>
-          <option>Backhoe Services</option>
-          <option>Water Heater Repair &amp; Installation</option>
-          <option>Backflow Testing</option>
-        </select>
-        <textarea class="full" name="message" rows="4" placeholder="Message" aria-label="Message"></textarea>
-        <button type="submit" class="btn btn-blue btn-sm"><em>Submit</em></button>
-      </form>
+  <!-- What makes us different + appointment form, side by side -->
+  <section class="different different-split">
+    <div class="container different-split-inner">
+      <div class="different-inner">
+        <img class="different-banner" src="https://5e9x7vx89b.ucarecd.net/e41ba7a2-89a4-4c06-be9c-96f6d477eea2/different-u3.png" alt="J. Henry Plumbing – serving North Alabama" loading="lazy">
+        <div class="different-body">
+          <h2>Here's What Makes Us<br>Different!</h2>
+          <span class="underline"></span>
+          <div class="different-grid">
+            <div class="different-item"><svg class="" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z" fill="#6cbf3c"/><path d="M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z" fill="#6cbf3c"/></svg><p>Our technicians are each background checked and drug tested. We hire and train only the best.</p></div>
+            <div class="different-item"><svg class="" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z" fill="#6cbf3c"/><path d="M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z" fill="#6cbf3c"/></svg><p>Before a technician is given our uniform, they must complete our very own rigorous training.</p></div>
+            <div class="different-item"><svg class="" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z" fill="#6cbf3c"/><path d="M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z" fill="#6cbf3c"/></svg><p>Customer satisfaction is our top priority. If you are not satisfied, we will do the job again to your satisfaction FREE.</p></div>
+            <div class="different-item"><svg class="" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M22 14h8v26c0 7-4 11-11 11h-3v-7h2c3 0 4-1 4-4z" fill="#6cbf3c"/><path d="M34 10h7v18c2-2 5-3 8-3 6 0 9 4 9 10v19h-7V36c0-3-1-5-4-5s-6 2-6 6v17h-7z" fill="#6cbf3c"/></svg><p>We'll always provide you with the price before we begin. No surprises or hidden fees!</p></div>
+          </div>
+          <div class="different-call">
+            <p>Prefer to talk?<br>Call us 24/7</p>
+            <a href="tel:2565855483" class="btn">(256) 585-5483</a>
+          </div>
+        </div>
+      </div>
+      <div class="schedule-box" id="schedule">
+        <h2>Schedule Your Appointment With<br>J. Henry Plumbing</h2>
+        <form class="schedule-form" action="#" method="post">
+          <div class="form-row">
+            <label>Name:
+              <input type="text" name="name" placeholder="Name" required>
+            </label>
+            <label>City:
+              <input type="text" name="city" placeholder="Your city here">
+            </label>
+          </div>
+          <div class="form-row">
+            <label>Email:
+              <input type="email" name="email" placeholder="Your email here" required>
+            </label>
+            <label>Phone Number:
+              <input type="tel" name="phone" placeholder="Your phone number here" required>
+            </label>
+          </div>
+          <fieldset class="callback">
+            <legend>Call-back Time:</legend>
+            <label><input type="checkbox" name="callback" value="asap"> ASAP</label>
+            <label><input type="checkbox" name="callback" value="morning"> Morning</label>
+            <label><input type="checkbox" name="callback" value="afternoon"> Afternoon</label>
+            <label><input type="checkbox" name="callback" value="after5"> After 5pm</label>
+          </fieldset>
+          <label class="full">Service Needed:
+            <input type="text" name="service">
+          </label>
+          <label class="full">How Can We Help You?:
+            <textarea name="message" rows="3"></textarea>
+          </label>
+          <label class="consent">
+            <input type="checkbox" name="sms_consent">
+            <span>By checking this box and signing up for texts, you agree to receive informational messages (appointment reminders, account notifications, marketing and promotional messages such as sales, coupons, seasonal deals, etc.) from J Henry Plumbing at the number provided. Msg &amp; data rates may apply. Msg frequency varies. Unsubscribe anytime by replying STOP. Reply HELP for help or email us at Service@jhenryplumbing.com. Learn more on our <a href="privacy-policy.html#terms">Terms &amp; Conditions</a> <a href="privacy-policy.html">Privacy Policy</a></span>
+          </label>
+          <button type="submit" class="btn btn-green"><em>Schedule an Appointment</em></button>
+        </form>
+      </div>
     </div>
   </section>
 
