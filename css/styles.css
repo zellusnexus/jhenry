@@ -287,13 +287,13 @@ img.img-missing { color: transparent; font-size: 0; }
 .intro-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 30px; }
 .intro-gallery img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 .intro-gallery img:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
-/* wide screens: the form stays centred on screen while the text beside it
-   scrolls, and the photos are taller to fill the column beside the long form */
+/* wide screens: the form stays centred on screen while the text beside it scrolls */
 @media (min-width: 901px) {
   .intro-grid > .form-embed { position: sticky; top: var(--form-top, 100px); }
-  .intro-gallery { gap: 14px; }
-  .intro-gallery img { aspect-ratio: 1 / 1; }
-  .intro-gallery img:first-child { aspect-ratio: 3 / 2; }
+  /* the photos stretch so their bottom edge lines up with the form's */
+  .intro-text { align-self: stretch; display: flex; flex-direction: column; }
+  .intro-gallery { flex: 1; gap: 14px; grid-template-rows: minmax(260px, 3fr) minmax(200px, 2fr); }
+  .intro-gallery img { height: 100%; aspect-ratio: auto; }
 }
 
 
@@ -862,9 +862,8 @@ body.lightbox-open { overflow: hidden; }
    call line at the bottom of the green box */
 .different-split { padding: 10px 0 64px; }
 .different-split-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
-/* the green box keeps its own height and glides alongside the taller form;
-   main.js sets how far down the screen it sits */
-.different-split .different-inner { position: sticky; top: var(--stick-top, 130px); }
+/* the green box keeps its own height; main.js drifts it down beside the taller form */
+.different-split .different-inner { will-change: transform; }
 .different-split .different-body { padding: calc(var(--diff-overlap) + 20px) 34px 34px; }
 .different-split .different-body h2 { font-size: clamp(26px, 2.4vw, 34px); }
 .different-split .different-grid { grid-template-columns: 1fr; gap: 18px; margin-bottom: 30px; }
@@ -926,7 +925,6 @@ body.lightbox-open { overflow: hidden; }
   .service-side { position: static; }
   .apply-inner { padding: 30px 22px; }
   .different-split-inner { grid-template-columns: 1fr; }
-  .different-split .different-inner { position: static; }
   .side-list { display: none; }    /* the services are in the main menu on phones */
   /* phones: a compact ticked list rather than a stack of cards */
   .service-main .area-list, .jh-list.check-list { grid-template-columns: 1fr; gap: 0; padding: 10px 16px; }
